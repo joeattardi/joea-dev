@@ -1,14 +1,22 @@
 {
-  "name": "joea-dev",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "astro": "^5.14.0"
-  }
+    "name": "joea-dev",
+    "type": "module",
+    "version": "0.0.1",
+    "scripts": {
+        "dev": "astro dev",
+        "build": "astro build",
+        "preview": "astro preview",
+        "astro": "astro",
+        "format": "prettier --write ."
+    },
+    "dependencies": {
+        "@tailwindcss/vite": "^4.1.13",
+        "astro": "^5.14.0",
+        "tailwindcss": "^4.1.13"
+    },
+    "devDependencies": {
+        "prettier": "3.6.2",
+        "prettier-plugin-astro": "0.14.1",
+        "typescript": "^5.9.2"
+    }
 }
