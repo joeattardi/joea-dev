@@ -1,8 +1,25 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import photo from '../assets/joe.jpeg';
 ---
 
-<Layout> Welcome to joea.dev! </Layout>
+<Layout>
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_256px] gap-8 m-8 justify-items-center items-center">
+        <div class="text-center md:text-left flex flex-col gap-4">
+            <h1 class="text-6xl font-bold font-serif">Joe Attardi</h1>
+            <p class="text-lg">
+                Welcome to my personal website. I am a software engineer with a passion for building
+                beautiful and functional web applications. I specialize in front-end development
+                with a focus on modern JavaScript frameworks.
+            </p>
+        </div>
+        <div>
+            <Image
+                src={photo}
+                alt="Photo of Joe Attardi"
+                class="w-64 h-64 rounded-full border-4 border-zinc-300 dark:border-zinc-600"
+            />
+        </div>
+    </div>
+</Layout>

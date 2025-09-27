@@ -11,7 +11,11 @@ import Footer from '../components/Footer.astro';
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/png" href="/favicon.png" />
+        <!-- <link rel="icon" type="image/png" href="/favicon.png" /> -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
         <meta name="generator" content={Astro.generator} />
         <title>Joe Attardi</title>
     </head>
@@ -34,7 +38,13 @@ import Footer from '../components/Footer.astro';
     .sidebar {
         --sidebar-accent: var(--color-zinc-200);
 
-        background: repeating-linear-gradient(45deg, var(--sidebar-accent) 0px, var(--sidebar-accent) 2px, transparent 1px, transparent 5px);
+        background: repeating-linear-gradient(
+            45deg,
+            var(--sidebar-accent) 0px,
+            var(--sidebar-accent) 2px,
+            transparent 1px,
+            transparent 5px
+        );
         border-left: 1px solid var(--sidebar-accent);
         border-right: 1px solid var(--sidebar-accent);
     }
