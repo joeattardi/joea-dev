@@ -1,1 +1,6 @@
 @import 'tailwindcss';
+
+@theme {
+    --font-sans: 'Roboto Variable', sans-serif;
+    --font-serif: 'Merriweather Variable', serif;
+}

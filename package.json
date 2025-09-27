@@ -10,6 +10,8 @@
         "format": "prettier --write ."
     },
     "dependencies": {
+        "@fontsource-variable/merriweather": "^5.2.6",
+        "@fontsource-variable/roboto": "^5.2.8",
         "@tailwindcss/vite": "^4.1.13",
         "astro": "^5.14.0",
         "tailwindcss": "^4.1.13"
