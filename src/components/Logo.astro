@@ -1,0 +1,61 @@
+<div class="logo flex items-center gap-2">
+    <div
+        class="monogram rounded-full border-4 text-lg border-black dark:border-white w-10 h-10 flex items-center justify-center"
+    >
+        <div class="text font-semibold flex item-center">
+            <span>J</span>
+            <span>A</span>
+        </div>
+    </div>
+    <h1 class="text-lg font-semibold">Joe Attardi</h1>
+</div>
+
+<style>
+    .logo {
+        transition: all 250ms;
+    }
+
+    .logo:hover .text {
+        & > span:first-child {
+            color: var(--color-blue-600);
+        }
+
+        & > span:last-child {
+            color: var(--color-violet-600);
+        }
+    }
+
+    .logo:hover .monogram {
+        border-top-color: var(--color-violet-400);
+        border-right-color: var(--color-violet-600);
+        border-bottom-color: var(--color-blue-400);
+        border-left-color: var(--color-blue-600);
+    }
+
+    .logo:hover h1 {
+        color: var(--color-blue-600);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .logo:hover .text {
+            & > span:first-child {
+                color: var(--color-blue-300);
+            }
+
+            & > span:last-child {
+                color: var(--color-violet-300);
+            }
+        }
+
+        .logo:hover .monogram {
+            border-top-color: var(--color-violet-200);
+            border-right-color: var(--color-violet-300);
+            border-bottom-color: var(--color-blue-200);
+            border-left-color: var(--color-blue-300);
+        }
+
+        .logo:hover h1 {
+            color: var(--color-blue-300);
+        }
+    }
+</style>
