@@ -3,4 +3,6 @@
 @theme {
     --font-sans: 'Roboto Variable', sans-serif;
     --font-serif: 'Merriweather Variable', serif;
+    --color-link: var(--color-blue-800);
+    --color-link-hover: var(--color-blue-600);
 }
