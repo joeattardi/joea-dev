@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
 import Layout from '../layouts/Layout.astro';
 import Link from '../components/Link.astro';
 import photo from '../assets/joe.jpeg';
@@ -19,11 +20,11 @@ import photo from '../assets/joe.jpeg';
                 I've also written books about <Link href="https://moderncss.cc">CSS</Link> and <Link href="https://webapis.info">the modern web platform</Link>.
             </p>
         </div>
-        <div>
+        <div class="row-1 md:row-auto">
             <Image
                 src={photo}
                 alt="Photo of Joe Attardi"
-                class="w-48 h-48 rounded-full border-8 border-zinc-300 dark:border-zinc-600"
+                class="w-32 h-32 md:w-48 md:h-48 rounded-full border-8 border-zinc-300 dark:border-zinc-600"
             />
         </div>
     </div>
