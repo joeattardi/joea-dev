@@ -1,13 +1,13 @@
 ---
 import { Image } from 'astro:assets';
-import { Icon } from 'astro-icon/components';
+import SocialIconLink from '../components/SocialIconLink.astro';
 import Layout from '../layouts/Layout.astro';
 import Link from '../components/Link.astro';
 import photo from '../assets/joe.jpeg';
 ---
 
 <Layout>
-    <div class="grid grid-cols-1 md:grid-cols-[1fr_256px] gap-8 m-8 justify-items-center items-center">
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_256px] gap-8 m-8 justify-items-center items-center bg-slate-100 p-8 rounded-lg border border-slate-200">
         <div class="text-center md:text-left flex flex-col gap-2">
             <h1 class="text-4xl font-bold font-serif">Joe Attardi</h1>
             <h2 class="text-xl">Software Engineer | Author</h2>
@@ -19,6 +19,11 @@ import photo from '../assets/joe.jpeg';
             <p class="text-lg">
                 I've also written books about <Link href="https://moderncss.cc">CSS</Link> and <Link href="https://webapis.info">the modern web platform</Link>.
             </p>
+            <div class="grid grid-cols-[min-content_min-content_min-content] gap-4 justify-center md:justify-start mt-4">
+                <SocialIconLink title="X" href="https://x.com/joeattardi" icon="fa7-brands:x-twitter" />
+                <SocialIconLink title="GitHub" href="https://github.com/joeattardi" icon="fa7-brands:github" />
+                <SocialIconLink title="LinkedIn" href="https://linkedin.com/in/joeattardi" icon="fa7-brands:linkedin" />
+            </div>
         </div>
         <div class="row-1 md:row-auto">
             <Image
