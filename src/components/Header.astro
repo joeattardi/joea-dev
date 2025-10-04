@@ -1,11 +1,16 @@
 ---
 import Logo from './Logo.astro';
+import Nav from './Nav.astro';
 ---
 
 <header
-    class="bg-zinc-100 dark:bg-zinc-700 p-2 flex items-center gap-1 border-b border-zinc-200 dark:border-zinc-600"
+    class="bg-zinc-100 dark:bg-zinc-700 p-2 border-b border-zinc-200 dark:border-zinc-600"
 >
-    <a href="/" class="flex items-center gap-2">
-        <Logo />
-    </a>
+    <div class="max-w-7xl w-full mx-auto flex items-center justify-between gap-1">
+        <a href="/" class="flex items-center gap-2">
+            <Logo />
+        </a>
+
+        <Nav />
+    </div>
 </header>
