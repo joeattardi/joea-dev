@@ -1,9 +1,19 @@
 ---
 const { href } = Astro.props;
+const targetUrl = new URL(href, Astro.url.href);
+const isActive = targetUrl.href === Astro.url.href;
 ---
 
 <li>
-    <a href={href} class="block text-zinc-600 font-medium dark:text-zinc-300 dark:hover:bg-zinc-200 hover:bg-zinc-400 dark:hover:text-zinc-800 px-4 py-2 rounded-full transition-colors">
+    <a
+        href={href}
+        class:list={[
+            'block px-4 py-1 transition-colors font-medium rounded-lg',
+            'dark:text-zinc-300 dark:hover:bg-zinc-200 dark:hover:text-zinc-800',
+            { 'dark:bg-zinc-200 bg-zinc-600 dark:text-zinc-800 text-white': isActive },
+            { 'text-zinc-600 hover:bg-zinc-200': !isActive }
+        ]}
+    >
         <slot />
     </a>
 </li>
