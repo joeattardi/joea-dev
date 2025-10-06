@@ -9,6 +9,7 @@ const isActive = targetUrl.href === Astro.url.href;
         href={href}
         class:list={[
             'block px-4 py-1 transition-colors font-medium rounded-full',
+            'text-4xl md:text-base',
             'dark:text-zinc-300 dark:hover:bg-zinc-200 dark:hover:text-zinc-800',
             { 'dark:bg-zinc-200 bg-zinc-600 dark:text-zinc-800 text-white': isActive },
             { 'text-zinc-600 hover:bg-zinc-200': !isActive }

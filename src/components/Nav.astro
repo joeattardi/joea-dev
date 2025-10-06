@@ -1,11 +1,44 @@
 ---
+import Logo from './Logo.astro';
 import NavLink from './NavLink.astro';
+import { Icon } from 'astro-icon/components';
 ---
 
-<nav>
-    <ul class="hidden md:flex items-center gap-2">
+<!-- <nav class="hidden md:block fixed top-0 left-0 w-screen h-screen bg-red-200 flex items-center justify-center"> -->
+<nav class:list={[
+    'hidden md:block',
+    'md:static md:w-auto md:h-auto',
+    'fixed top-0 left-0 w-full h-full bg-zinc-100 dark flex items-center justify-center',
+    'dark:bg-zinc-800'
+]}>
+    <div class="fixed top-2 left-2"><Logo /></div>
+    <ul class="flex flex-col gap-8 md:flex-row items-center md:gap-2">
         <NavLink href="/blog">Blog</NavLink>
         <NavLink href="/projects">Projects</NavLink>
         <NavLink href="/books">Books</NavLink>
     </ul>
 </nav>
+
+<button type="button" id="hamburger" class="md:hidden z-50 mr-2">
+    <Icon id="menu-closed" name="ph:list-bold" class="w-8 h-8" />
+    <Icon id="menu-open"name="ph:x-bold" class="w-8 h-8 hidden" />
+</button>
+
+<script>
+    const button = document.getElementById('hamburger');
+    const menuClosedIcon = document.getElementById('menu-closed');
+    const menuOpenIcon = document.getElementById('menu-open');
+
+    let menuOpen = false;
+
+    button?.addEventListener('click', () => {
+        menuOpen = !menuOpen;
+        const nav = document.querySelector('nav');
+
+        document.body.classList.toggle('fixed', menuOpen);
+        document.body.classList.toggle('w-full', menuOpen);
+        nav?.classList.toggle('hidden', !menuOpen);
+        menuClosedIcon?.classList.toggle('hidden', menuOpen);
+        menuOpenIcon?.classList.toggle('hidden', !menuOpen);
+    });
+</script>
