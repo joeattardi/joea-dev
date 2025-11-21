@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getAllPosts, getPost } from '../../lib/client';
+
+export async function getStaticPaths() {
+  const data = await getAllPosts();
+  const allPosts = data.publication.posts.edges;
+  return allPosts.map((post) => {
+    return {
+      params: { slug: post.node.slug },
+    }
+  })
+}
+const { slug } = Astro.params;
+const post = await getPost(slug);
+---
+<Layout title={post.title}>
+  <article class="prose-lg mx-auto dark:prose-invert prose-ul:list-disc prose-code:rounded">
+    <h1>{post.title}</h1>
+    <Fragment set:html={post.content.html} />
+  </article>
+</Layout>

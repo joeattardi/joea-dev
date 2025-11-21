@@ -1,0 +1,19 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getAllPosts } from '../../lib/client';
+
+const data = await getAllPosts();
+const allPosts = data.publication.posts.edges;
+---
+
+<Layout title="Blog">
+    <div>
+        {
+            allPosts.map(post => (
+                <article>
+                    <h2><a href={`/blog/${post.node.slug}`}>{post.node.title}</a></h2>
+                </article>
+            ))
+        }
+    </div>
+</Layout>
