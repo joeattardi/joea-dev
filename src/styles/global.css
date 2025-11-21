@@ -18,20 +18,3 @@ code::before {
 code::after {
     display: none;
 }
-
-/* Dark background for code blocks (applies to the pre wrapper only) */
-pre[class*="language-"] {
-    background-color: #0b1220 !important;
-    color: #c9d1d9 !important;
-    border-radius: 0.5rem;
-    padding: 1rem;
-    overflow: auto;
-}
-
-/* Inline code (no language) — subtle dark background */
-code:not([class*="language-"]) {
-    background-color: transparent !important;
-    color: inherit !important;
-    padding: 0.2rem 0.35rem;
-    border-radius: 0.25rem;
-}

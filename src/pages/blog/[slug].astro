@@ -15,7 +15,7 @@ const { slug } = Astro.params;
 const post = await getPost(slug);
 ---
 <Layout title={post.title}>
-  <article class="prose-lg mx-auto dark:prose-invert prose-ul:list-disc prose-code:rounded">
+  <article class="prose-lg">
     <h1>{post.title}</h1>
     <Fragment set:html={post.content.html} />
   </article>
