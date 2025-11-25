@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getAllPosts, getPost } from '../../lib/client';
+import { Markdown } from '@astropub/md';
 
 export async function getStaticPaths() {
   const data = await getAllPosts();
@@ -17,6 +18,6 @@ const post = await getPost(slug);
 <Layout title={post.title}>
   <article class="prose-lg prose-pre:overflow-x-auto">
     <h1>{post.title}</h1>
-    <Fragment set:html={post.content.markdown} />
+    <Markdown of={post.content.markdown} />
   </article>
 </Layout>
