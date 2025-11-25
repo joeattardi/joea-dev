@@ -72,6 +72,7 @@ export const getPost = async (slug: string) => {
             readTimeInMinutes
             content{
               html
+              markdown
             }
             tags {
               name
