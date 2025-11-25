@@ -16,7 +16,7 @@ const { slug } = Astro.params;
 const post = await getPost(slug);
 ---
 <Layout title={post.title}>
-  <article class="prose-lg prose-pre:overflow-x-auto">
+  <article class="prose-lg prose-pre:overflow-x-auto prose-ul:list-disc prose-a:text-blue-600 prose-a:dark:text-blue-400">
     <h1>{post.title}</h1>
     <Markdown of={post.content.markdown} />
   </article>

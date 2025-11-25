@@ -18,3 +18,13 @@ code::before {
 code::after {
     display: none;
 }
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+    }
+
+    .astro-code {
+        border: 1px solid var(--color-slate-400);
+    }
+}
