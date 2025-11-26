@@ -3,9 +3,9 @@ const { post } = Astro.props;
 ---
 
 <div class="relative max-w-128 mx-auto">
-    {post.coverImage.url && <img class="w-full" src={post.coverImage.url} />}
+    {post.coverImage?.url && <img class="w-full" src={post.coverImage.url} />}
     {
-        post.coverImage.photographer && (
+        post.coverImage?.photographer && (
             <small class="bg-zinc-300 text-zinc-800 px-2 py-1 rounded absolute right-4 bottom-2 shadow">
                 Image: <a href={post.coverImage.attribution}>{post.coverImage.photographer}</a>
             </small>
