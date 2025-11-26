@@ -4,20 +4,33 @@ import { getAllPosts, getPost } from '../../lib/client';
 import { Markdown } from '@astropub/md';
 
 export async function getStaticPaths() {
-  const data = await getAllPosts();
-  const allPosts = data.publication.posts.edges;
-  return allPosts.map((post) => {
-    return {
-      params: { slug: post.node.slug },
-    }
-  })
+    const data = await getAllPosts();
+    const allPosts = data.publication.posts.edges;
+    return allPosts.map((post) => {
+        return {
+            params: { slug: post.node.slug }
+        };
+    });
 }
 const { slug } = Astro.params;
 const post = await getPost(slug);
 ---
+
 <Layout title={post.title}>
-  <article class="prose-lg prose-pre:overflow-x-auto prose-ul:list-disc prose-a:text-blue-600 prose-a:dark:text-blue-400">
-    <h1>{post.title}</h1>
-    <Markdown of={post.content.markdown} />
-  </article>
+    <article class="w-full max-w-prose mx-auto flex flex-col gap-4">
+        <header class="flex flex-col">
+          <h1 class="text-3xl md:text-4xl font-bold">{post.title}</h1>
+          <h2>{post.subtitle}</h2>
+        </header>
+        <div
+            class:list={[
+              'prose dark:prose-invert md:prose-lg',
+              'prose-pre:overflow-x-auto prose-pre:max-w-full prose-li:m-0 prose-ul:list-disc',
+              'prose-h2:my-2 prose-h3:my-2 prose-h4:my-2',
+              'prose-a:text-blue-600 prose-a:dark:text-blue-400 mx-auto max-w-full'
+            ]}
+        >
+            <Markdown of={post.content.markdown} />
+        </div>
+    </article>
 </Layout>

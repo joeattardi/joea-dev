@@ -19,7 +19,11 @@ code::after {
     display: none;
 }
 
-.prose-lg ul p {
+/* .prose, .prose-lg {
+    max-width: 100%;
+} */
+
+.prose-lg ul p, .prose ul p {
     margin: 0;
 }
 

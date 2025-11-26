@@ -20,11 +20,11 @@ const pageTitle = title ? `${title} | Joe Attardi` : 'Joe Attardi';
         <title>{pageTitle}</title>
     </head>
     <body
-        class="bg-zinc-50 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-100 h-screen grid grid-rows-[auto_1fr_auto]"
+        class="bg-zinc-50 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-100 h-screen"
     >
         <Header />
-        <main class="overflow-x-hidden">
-            <div class="max-w-7xl w-full mx-auto p-4">
+        <main class="max-w-full overflow-auto">
+            <div class="max-w-7xl mx-auto p-4">
                 <slot />
             </div>
         </main>
