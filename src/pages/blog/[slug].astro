@@ -23,12 +23,12 @@ const post = await getPost(slug);
 <Layout title={post.title}>
     <article class="w-full mx-auto flex flex-col gap-4 max-w-full">
         <header class="flex flex-col gap-8">
-            <CoverImage {post} />
-            <div class="dark:bg-zinc-700 bg-slate-100 p-8 rounded-md flex flex-col gap-4">
+            <div class="dark:bg-zinc-700 bg-zinc-200 p-8 rounded-md flex flex-col gap-4 border-l-8 border-zinc-600 dark:border-zinc-400">
                 <PostTitle {post} />
                 <PostMetadata {post} />
             </div>
         </header>
+        <CoverImage {post} />
         <PostContent {post} />
     </article>
 </Layout>

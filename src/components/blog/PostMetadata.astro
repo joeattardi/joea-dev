@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components';
 const { post } = Astro.props;
 
 const publishedDate = new Date(post.publishedAt).toLocaleDateString('en-US', {
@@ -8,17 +9,19 @@ const publishedDate = new Date(post.publishedAt).toLocaleDateString('en-US', {
 });
 ---
 
-<div class="flex items-center gap-2">
+<div class="flex md:flex-row flex-col items-start md:items-center gap-2">
     <div class="flex items-center gap-2">
-        <img src={post.author.profilePicture} class="w-8 h-8 rounded-full" />
+        <img src={post.author.profilePicture} alt={post.author.name} class="w-8 h-8 rounded-full" />
         {post.author.name}
     </div>
-    •
-    <div class="flex items-center gap-2">
+    <span class="hidden md:block">•</span>
+    <div class="flex items-center gap-1">
+        <Icon name="ph:calendar-dots" />
         <time datetime={post.publishedAt}>{publishedDate}</time>
     </div>
     <span class="hidden md:block">•</span>
-    <div class="items-center gap-2 hidden md:flex">
+    <div class="items-center gap-1 hidden md:flex">
+        <Icon name="ph:clock" />
         <span>{post.readTimeInMinutes} minute read</span>
     </div>
 </div>
