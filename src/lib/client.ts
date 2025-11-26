@@ -34,6 +34,8 @@ export const getAllPosts = async () => {
                 slug
                 coverImage {
                   url
+                  attribution
+                  photographer
                 }
                 tags {
                   name
@@ -80,6 +82,8 @@ export const getPost = async (slug: string) => {
             }
             coverImage {
               url
+              attribution
+              photographer
             }
           }
         }
