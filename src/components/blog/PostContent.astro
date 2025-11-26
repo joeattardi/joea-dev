@@ -1,10 +1,13 @@
 ---
 const { post } = Astro.props;
-import { Markdown } from '@astropub/md';
+import { marked } from 'marked';
+
 
 // Hashnode sticks align="center" in its images which breaks the
 // Markdown rendering. This is a quick fix to remove those.
 const fixedMarkdown = post.content.markdown.replace(/(\s+align="center")\)/g, ')');
+
+const content = marked.parse(fixedMarkdown);
 ---
 
 <div
@@ -14,6 +17,4 @@ const fixedMarkdown = post.content.markdown.replace(/(\s+align="center")\)/g, ')
         'prose-h2:my-2 prose-h3:my-2 prose-h4:my-2',
         'prose-a:text-blue-600 prose-a:dark:text-blue-400 mx-auto max-w-full'
     ]}
->
-    <Markdown of={fixedMarkdown} />
-</div>
+    set:html={content}></div>
