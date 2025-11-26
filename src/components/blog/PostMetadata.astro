@@ -1,0 +1,24 @@
+---
+const { post } = Astro.props;
+
+const publishedDate = new Date(post.publishedAt).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+});
+---
+
+<div class="flex items-center gap-2">
+    <div class="flex items-center gap-2">
+        <img src={post.author.profilePicture} class="w-8 h-8 rounded-full" />
+        {post.author.name}
+    </div>
+    •
+    <div class="flex items-center gap-2">
+        <time datetime={post.publishedAt}>{publishedDate}</time>
+    </div>
+    <span class="hidden md:block">•</span>
+    <div class="items-center gap-2 hidden md:flex">
+        <span>{post.readTimeInMinutes} minute read</span>
+    </div>
+</div>

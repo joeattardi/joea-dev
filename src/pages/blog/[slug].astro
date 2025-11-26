@@ -1,7 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import PostContent from '../../components/blog/PostContent.astro';
 import { getAllPosts, getPost } from '../../lib/client';
-import { Markdown } from '@astropub/md';
+import PostTitle from '../../components/blog/PostTitle.astro';
+import PostMetadata from '../../components/blog/PostMetadata.astro';
+import CoverImage from '../../components/blog/CoverImage.astro';
 
 export async function getStaticPaths() {
     const data = await getAllPosts();
@@ -12,64 +15,20 @@ export async function getStaticPaths() {
         };
     });
 }
+
 const { slug } = Astro.params;
 const post = await getPost(slug);
-
-// Hashnode sticks align="center" in its images which breaks the
-// Markdown rendering. This is a quick fix to remove those.
-const fixedMarkdown = post.content.markdown.replace(/(\s+align="center")\)/g, ')');
-
-const publishedDate = new Date(post.publishedAt).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-});
 ---
 
 <Layout title={post.title}>
     <article class="w-full mx-auto flex flex-col gap-4 max-w-full">
-        <header class="flex flex-col gap-2">
-            <div class="relative max-w-128 mx-auto">
-                {post.coverImage.url && <img class="w-full" src={post.coverImage.url} />}
-                {
-                    post.coverImage.photographer && (
-                        <small class="bg-zinc-300 text-zinc-800 px-2 py-1 rounded absolute right-4 bottom-2 shadow">
-                            Image:{' '}
-                            <a href={post.coverImage.attribution}>{post.coverImage.photographer}</a>
-                        </small>
-                    )
-                }
-            </div>
-            <div class="dark:bg-slate-700 bg-slate-100 p-4 rounded-md flex flex-col gap-4">
-                <div class="flex flex-col gap-2">
-                    <h1 class="text-3xl md:text-4xl font-bold">{post.title}</h1>
-                    <h2>{post.subtitle}</h2>
-                </div>
-                <div class="flex items-center gap-2">
-                    <div class="flex items-center gap-2">
-                        <img src={post.author.profilePicture} class="w-8 h-8 rounded-full" />
-                        {post.author.name}
-                    </div>
-                    •
-                    <div class="flex items-center gap-2">
-                        <time datetime={post.publishedAt}>{publishedDate}</time>
-                    </div>
-                    <span class="hidden md:block">•</span>
-                    <div class="items-center gap-2 hidden md:flex">
-                        <span>{post.readTimeInMinutes} minute read</span>
-                    </div>
-                </div>
+        <header class="flex flex-col gap-8">
+            <CoverImage {post} />
+            <div class="dark:bg-zinc-700 bg-slate-100 p-8 rounded-md flex flex-col gap-4">
+                <PostTitle {post} />
+                <PostMetadata {post} />
             </div>
         </header>
-        <div
-            class:list={[
-                'prose dark:prose-invert md:prose-lg',
-                'prose-pre:overflow-x-auto prose-pre:max-w-full prose-li:m-0 prose-ul:list-disc',
-                'prose-h2:my-2 prose-h3:my-2 prose-h4:my-2',
-                'prose-a:text-blue-600 prose-a:dark:text-blue-400 mx-auto max-w-full'
-            ]}
-        >
-            <Markdown of={fixedMarkdown} />
-        </div>
+        <PostContent {post} />
     </article>
 </Layout>
