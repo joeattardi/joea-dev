@@ -1,7 +1,7 @@
 ---
 const { href } = Astro.props;
 const targetUrl = new URL(href, Astro.url.href);
-const isActive = targetUrl.href === Astro.url.href;
+const isActive = Astro.url.pathname.startsWith(targetUrl.pathname);
 ---
 
 <li>
