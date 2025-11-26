@@ -55,7 +55,7 @@ const publishedDate = new Date(post.publishedAt).toLocaleDateString('en-US', {
                         <time datetime={post.publishedAt}>{publishedDate}</time>
                     </div>
                     <span class="hidden md:block">•</span>
-                    <div class="flex items-center gap-2 hidden md:block">
+                    <div class="items-center gap-2 hidden md:flex">
                         <span>{post.readTimeInMinutes} minute read</span>
                     </div>
                 </div>
