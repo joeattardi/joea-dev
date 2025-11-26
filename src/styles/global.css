@@ -19,7 +19,7 @@ code::after {
     display: none;
 }
 
-.prose-lg ul p, .prose ul p {
+.prose-lg ul p, .prose ul p, .prose-lg ol p, .prose ol p {
     margin: 0;
 }
 
