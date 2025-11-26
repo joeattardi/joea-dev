@@ -19,12 +19,12 @@ code::after {
     display: none;
 }
 
-/* .prose, .prose-lg {
-    max-width: 100%;
-} */
-
 .prose-lg ul p, .prose ul p {
     margin: 0;
+}
+
+pre > .hljs {
+    background: transparent;
 }
 
 @media (prefers-color-scheme: dark) {
