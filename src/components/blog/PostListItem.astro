@@ -1,0 +1,26 @@
+---
+import type { Post } from '../../lib/schema';
+import PostTags from './PostTags.astro';
+
+interface Props {
+    post: Post;
+}
+
+const { post } = Astro.props;
+
+const publishedDate = new Date(post.publishedAt).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+});
+---
+<article>
+        <a
+        class="rounded-lg p-4 border dark:border-zinc-600 dark:bg-zinc-900 bg-slate-100 border-slate-300 grid grid-rows-[auto_1fr] gap-4 h-full"
+        href={`/blog/${post.slug}`}
+    >
+        <h3 class="text-xl">{post.title}</h2>
+        <time class="text-xs dark:text-zinc-400 text-slate-600" datetime={post.publishedAt}>{publishedDate}</time>
+        <PostTags {post} />
+    </a>
+</article>
