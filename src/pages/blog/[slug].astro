@@ -5,6 +5,7 @@ import { getAllPosts, getPost } from '../../lib/client';
 import PostTitle from '../../components/blog/PostTitle.astro';
 import PostMetadata from '../../components/blog/PostMetadata.astro';
 import CoverImage from '../../components/blog/CoverImage.astro';
+import PostTags from '../../components/blog/PostTags.astro';
 
 export async function getStaticPaths() {
     const data = await getAllPosts();
@@ -25,6 +26,7 @@ const post = await getPost(slug);
         <header class="flex flex-col gap-8">
             <div class="dark:bg-zinc-700 bg-zinc-200 p-8 rounded-md flex flex-col gap-4 border-l-8 border-zinc-600 dark:border-zinc-400">
                 <PostTitle {post} />
+                <PostTags {post} />
                 <PostMetadata {post} />
             </div>
         </header>
