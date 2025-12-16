@@ -1,0 +1,62 @@
+---
+import type { Page, GetStaticPaths } from 'astro';
+import PostCard from '../../components/blog/PostCard.astro';
+import PostListItem from '../../components/blog/PostListItem.astro';
+import Layout from '../../layouts/Layout.astro';
+import { getAllPosts } from '../../lib/client';
+import type { AllPostsData } from '../../lib/schema';
+
+export const getStaticPaths = (async ({ paginate }) => {
+    const data = await getAllPosts();
+    const allPosts = data.publication.posts.edges;
+
+    const featuredPosts = allPosts.slice(0, 3);
+    const otherPosts = allPosts.slice(3);
+
+    return paginate(otherPosts, {
+        pageSize: 6,
+        props: { featuredPosts }
+    });
+}) satisfies GetStaticPaths;
+
+type Props = {
+    page: Page<AllPostsData['publication']['posts']['edges'][number]>;
+    featuredPosts: AllPostsData['publication']['posts']['edges'];
+};
+
+const { page, featuredPosts } = Astro.props as Props;
+const isFirstPage = page.currentPage === 1;
+---
+
+<Layout title="Blog">
+    <div class="flex flex-col gap-4">
+        {isFirstPage && (
+            <div class="flex flex-col gap-4">
+                <h2 class="text-2xl font-serif">Latest Posts</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {featuredPosts.map((post) => <PostCard post={post.node} />)}
+                </div>
+            </div>
+        )}
+        <div class="flex flex-col gap-4">
+            {
+                page.data.map((post) => (
+                    <PostListItem post={post.node} />
+                ))
+            }
+        </div>
+
+        <div class="flex justify-center gap-4 items-center mt-8">
+            {page.url.prev && (
+                <a href={page.url.prev} class="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors">
+                    ← Previous
+                </a>
+            )}
+            {page.url.next && (
+                <a href={page.url.next} class="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors">
+                    Next →
+                </a>
+            )}
+        </div>
+    </div>
+</Layout>
