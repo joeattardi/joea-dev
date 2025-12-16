@@ -1,25 +1,12 @@
 ---
 const { post } = Astro.props;
 import { Marked } from 'marked';
-import { markedHighlight } from 'marked-highlight';
-import hljs from 'highlight.js';
-import 'highlight.js/styles/github-dark.css';
 
 // Hashnode sticks align="center" in its images which breaks the
 // Markdown rendering. This is a quick fix to remove those.
 const fixedMarkdown = post.content.markdown.replace(/(\s+align="(center|left)")\)/g, ')');
 
-const marked = new Marked(
-  markedHighlight({
-	emptyLangClass: 'hljs',
-    langPrefix: 'hljs language-',
-    highlight(code, lang, info) {
-      const language = hljs.getLanguage(lang) ? lang : 'plaintext';
-      return hljs.highlight(code, { language }).value;
-    }
-  })
-);
-
+const marked = new Marked();
 const content = marked.parse(fixedMarkdown);
 ---
 
@@ -31,4 +18,5 @@ const content = marked.parse(fixedMarkdown);
         'prose-h1:text-3xl',
         'prose-a:text-blue-600 prose-a:dark:text-blue-400 mx-auto max-w-full'
     ]}
-    set:html={content}></div>
+    set:html={content}
+/>
