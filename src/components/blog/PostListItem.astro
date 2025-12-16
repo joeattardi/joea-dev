@@ -17,7 +17,7 @@ const publishedDate = new Date(post.publishedAt).toLocaleDateString('en-US', {
 ---
 <article>
         <a
-        class="rounded-lg p-4 border dark:border-zinc-600 dark:bg-zinc-900 bg-slate-100 border-slate-300 grid grid-cols-[auto_1fr] gap-4 h-full"
+        class="rounded-lg p-4 border dark:border-zinc-600 dark:bg-zinc-900 bg-slate-100 border-slate-300 dark:hover:bg-zinc-950 hover:bg-slate-200 grid grid-cols-[auto_1fr] gap-4 h-full"
         href={`/blog/${post.slug}`}
     >
         {post.coverImage?.url ? (
