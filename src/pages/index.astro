@@ -100,13 +100,17 @@ const publishedDate = latestPost ? new Date(latestPost.publishedAt).toLocaleDate
         {latestPost && (
             <BentoBox variant="contact" class="bg-white dark:bg-zinc-900 overflow-hidden">
                 <a href={`/blog/${latestPost.slug}`} class="block h-full hover:opacity-90 transition-opacity">
-                    <img
-                        src={latestPost.coverImage.url}
-                        alt={latestPost.title}
-                        class="w-full h-32 md:h-40 object-cover"
-                    />
+                    <div class="relative">
+                        <img
+                            src={latestPost.coverImage.url}
+                            alt={latestPost.title}
+                            class="w-full h-32 md:h-40 object-cover"
+                        />
+                        <div class="absolute top-0 left-0 right-0 p-6 bg-linear-to-b from-black/70 to-transparent">
+                            <h2 class="text-2xl md:text-3xl font-bold font-serif text-white drop-shadow-lg">From the Blog</h2>
+                        </div>
+                    </div>
                     <div class="p-6">
-                        <div class="text-xs text-purple-600 dark:text-purple-400 font-medium mb-2">LATEST POST</div>
                         <h3 class="text-lg md:text-xl font-bold font-serif mb-2 line-clamp-2">{latestPost.title}</h3>
                         <p class="text-sm text-zinc-600 dark:text-zinc-400 line-clamp-2 mb-3">{latestPost.brief}</p>
                         <time class="text-xs text-zinc-500 dark:text-zinc-500" datetime={latestPost.publishedAt}>
