@@ -3,5 +3,5 @@ import { Icon } from 'astro-icon/components';
 const { href, icon, title } = Astro.props;
 ---
 <a href={href} title={title} class="text-zinc-500 hover:text-black dark:text-zinc-400 dark:hover:text-white transition-colors">
-    <Icon class="w-8 h-8" name={icon} />
+    <Icon class="w-8 h-8 md:w-10 md:h-10" name={icon} />
 </a>
