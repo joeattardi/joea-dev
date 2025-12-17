@@ -4,6 +4,7 @@ import { Icon } from 'astro-icon/components';
 import SocialIconLink from '../components/SocialIconLink.astro';
 import Layout from '../layouts/Layout.astro';
 import Link from '../components/Link.astro';
+import BentoBox from '../components/BentoBox.astro';
 import photo from '../assets/joe.jpeg';
 ---
 
@@ -11,7 +12,7 @@ import photo from '../assets/joe.jpeg';
     <!-- Bento Grid Container -->
     <div class="bento-grid gap-3 md:gap-4">
         <!-- Main Hero Box -->
-        <div class="bento-box bento-hero bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 dark:from-blue-600 dark:via-purple-600 dark:to-pink-600 text-white p-8 md:p-12">
+        <BentoBox variant="hero" class="bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 dark:from-blue-600 dark:via-purple-600 dark:to-pink-600 text-white p-8 md:p-12">
             <h1 class="text-4xl md:text-6xl font-bold font-serif mb-4">
                 Joe Attardi
             </h1>
@@ -22,10 +23,10 @@ import photo from '../assets/joe.jpeg';
                 Building beautiful and functional web applications for over 20 years.
                 Passionate about front-end development and modern JavaScript frameworks.
             </p>
-        </div>
+        </BentoBox>
 
         <!-- Photo Box -->
-        <div class="bento-box bento-photo bg-white dark:bg-zinc-900 p-6 flex items-center justify-center">
+        <BentoBox variant="photo" class="bg-white dark:bg-zinc-900 p-6 flex items-center justify-center">
             <div class="relative">
                 <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur-2xl opacity-30 animate-pulse"></div>
                 <Image
@@ -34,10 +35,10 @@ import photo from '../assets/joe.jpeg';
                     class="relative w-48 h-48 md:w-56 md:h-56 rounded-full border-4 border-white dark:border-zinc-700"
                 />
             </div>
-        </div>
+        </BentoBox>
 
         <!-- About Box -->
-        <div class="bento-box bento-about bg-white dark:bg-zinc-900 p-8">
+        <BentoBox variant="about" class="bg-white dark:bg-zinc-900 p-8">
             <h2 class="text-2xl md:text-3xl font-bold font-serif mb-4">About Me</h2>
             <p class="text-base text-zinc-700 dark:text-zinc-300 mb-3">
                 For more than 20 years, I've had a passion for building
@@ -47,40 +48,40 @@ import photo from '../assets/joe.jpeg';
             <p class="text-base text-zinc-700 dark:text-zinc-300">
                 I've also written books about <Link href="https://moderncss.cc">CSS</Link> and <Link href="https://webapis.info">the modern web platform</Link>.
             </p>
-        </div>
+        </BentoBox>
 
         <!-- JavaScript Box -->
-        <div class="bento-box bento-tech bg-yellow-50 dark:bg-zinc-900 p-3 border-2 border-yellow-200 dark:border-yellow-900 hover:border-yellow-400 dark:hover:border-yellow-600 transition-colors flex items-center justify-center">
+        <BentoBox variant="tech" class="bg-yellow-50 dark:bg-zinc-900 p-3 border-2 border-yellow-200 dark:border-yellow-900 hover:border-yellow-400 dark:hover:border-yellow-600 transition-colors flex items-center justify-center">
             <Icon name="simple-icons:javascript" class="w-8 h-8 md:w-10 md:h-10 text-yellow-400" />
-        </div>
+        </BentoBox>
 
         <!-- TypeScript Box -->
-        <div class="bento-box bento-tech bg-blue-50 dark:bg-zinc-900 p-3 border-2 border-blue-200 dark:border-blue-900 hover:border-blue-400 dark:hover:border-blue-600 transition-colors flex items-center justify-center">
+        <BentoBox variant="tech" class="bg-blue-50 dark:bg-zinc-900 p-3 border-2 border-blue-200 dark:border-blue-900 hover:border-blue-400 dark:hover:border-blue-600 transition-colors flex items-center justify-center">
             <Icon name="simple-icons:typescript" class="w-8 h-8 md:w-10 md:h-10 text-blue-600" />
-        </div>
+        </BentoBox>
 
         <!-- React Box -->
-        <div class="bento-box bento-tech bg-cyan-50 dark:bg-zinc-900 p-3 border-2 border-cyan-200 dark:border-cyan-900 hover:border-cyan-400 dark:hover:border-cyan-600 transition-colors flex items-center justify-center">
+        <BentoBox variant="tech" class="bg-cyan-50 dark:bg-zinc-900 p-3 border-2 border-cyan-200 dark:border-cyan-900 hover:border-cyan-400 dark:hover:border-cyan-600 transition-colors flex items-center justify-center">
             <Icon name="simple-icons:react" class="w-8 h-8 md:w-10 md:h-10 text-cyan-400" />
-        </div>
+        </BentoBox>
 
         <!-- Node.js Box -->
-        <div class="bento-box bento-tech bg-green-50 dark:bg-zinc-900 p-3 border-2 border-green-200 dark:border-green-900 hover:border-green-400 dark:hover:border-green-600 transition-colors flex items-center justify-center">
+        <BentoBox variant="tech" class="bg-green-50 dark:bg-zinc-900 p-3 border-2 border-green-200 dark:border-green-900 hover:border-green-400 dark:hover:border-green-600 transition-colors flex items-center justify-center">
             <Icon name="simple-icons:nodedotjs" class="w-8 h-8 md:w-10 md:h-10 text-green-600" />
-        </div>
+        </BentoBox>
 
         <!-- HTML Box -->
-        <div class="bento-box bento-tech bg-orange-50 dark:bg-zinc-900 p-3 border-2 border-orange-200 dark:border-orange-900 hover:border-orange-400 dark:hover:border-orange-600 transition-colors flex items-center justify-center">
+        <BentoBox variant="tech" class="bg-orange-50 dark:bg-zinc-900 p-3 border-2 border-orange-200 dark:border-orange-900 hover:border-orange-400 dark:hover:border-orange-600 transition-colors flex items-center justify-center">
             <Icon name="simple-icons:html5" class="w-8 h-8 md:w-10 md:h-10 text-orange-500" />
-        </div>
+        </BentoBox>
 
         <!-- CSS Box -->
-        <div class="bento-box bento-tech bg-purple-50 dark:bg-zinc-900 p-3 border-2 border-purple-200 dark:border-purple-900 hover:border-purple-400 dark:hover:border-purple-600 transition-colors flex items-center justify-center">
+        <BentoBox variant="tech" class="bg-purple-50 dark:bg-zinc-900 p-3 border-2 border-purple-200 dark:border-purple-900 hover:border-purple-400 dark:hover:border-purple-600 transition-colors flex items-center justify-center">
             <Icon name="simple-icons:css3" class="w-8 h-8 md:w-10 md:h-10 text-blue-500" />
-        </div>
+        </BentoBox>
 
         <!-- Contact Box -->
-        <div class="bento-box bento-contact bg-gradient-to-br from-blue-50 to-purple-50 dark:from-zinc-900 dark:to-zinc-900 p-8">
+        <BentoBox variant="contact" class="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-zinc-900 dark:to-zinc-900 p-8">
             <h2 class="text-2xl md:text-3xl font-bold font-serif mb-4">Let's Connect</h2>
             <p class="text-base text-zinc-700 dark:text-zinc-300 mb-6">
                 I'd love to hear from you! Whether you have a question, want to collaborate, or just want to say hi.
@@ -91,17 +92,17 @@ import photo from '../assets/joe.jpeg';
                 <SocialIconLink title="GitHub" href="https://github.com/joeattardi" icon="fa7-brands:github" />
                 <SocialIconLink title="LinkedIn" href="https://linkedin.com/in/joeattardi" icon="fa7-brands:linkedin" />
             </div>
-        </div>
+        </BentoBox>
 
         <!-- CTA Box -->
-        <div class="bento-box bento-cta bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 flex flex-col justify-center">
+        <BentoBox variant="cta" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 flex flex-col justify-center">
             <h3 class="text-xl md:text-2xl font-bold mb-6">Check out my work</h3>
             <div class="flex flex-col gap-3">
                 <a href="/blog" class="px-6 py-3 bg-white text-purple-600 rounded-lg font-medium hover:scale-105 transition-all duration-200 text-center">
                     Read My Blog
                 </a>
             </div>
-        </div>
+        </BentoBox>
     </div>
 </Layout>
 
@@ -120,81 +121,6 @@ import photo from '../assets/joe.jpeg';
         .bento-grid {
             grid-template-columns: repeat(6, 1fr);
             grid-auto-rows: minmax(100px, auto);
-        }
-    }
-
-    /* Base box styling */
-    .bento-box {
-        border-radius: 1.5rem;
-        border: 1px solid rgba(0, 0, 0, 0.15);
-        min-width: 0;
-        box-sizing: border-box;
-    }
-
-    /* Individual box layouts */
-    .bento-hero {
-        grid-column: span 2;
-        grid-row: span 2;
-    }
-
-    @media (min-width: 768px) {
-        .bento-hero {
-            grid-column: span 3;
-            grid-row: span 2;
-        }
-    }
-
-    .bento-photo {
-        grid-column: span 2;
-        grid-row: span 2;
-    }
-
-    @media (min-width: 768px) {
-        .bento-photo {
-            grid-column: span 3;
-            grid-row: span 2;
-        }
-    }
-
-    .bento-about {
-        grid-column: span 2;
-        grid-row: span 2;
-    }
-
-    @media (min-width: 768px) {
-        .bento-about {
-            grid-column: span 6;
-            grid-row: span 2;
-        }
-    }
-
-    .bento-tech {
-        grid-column: span 1;
-        grid-row: span 1;
-        aspect-ratio: 3 / 2;
-    }
-
-    .bento-contact {
-        grid-column: span 2;
-        grid-row: span 2;
-    }
-
-    @media (min-width: 768px) {
-        .bento-contact {
-            grid-column: span 3;
-            grid-row: span 2;
-        }
-    }
-
-    .bento-cta {
-        grid-column: span 2;
-        grid-row: span 1;
-    }
-
-    @media (min-width: 768px) {
-        .bento-cta {
-            grid-column: span 3;
-            grid-row: span 1;
         }
     }
 </style>

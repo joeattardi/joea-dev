@@ -1,0 +1,89 @@
+---
+interface Props {
+  variant: 'hero' | 'photo' | 'about' | 'tech' | 'contact' | 'cta';
+  class?: string;
+}
+
+const { variant, class: className = '' } = Astro.props;
+---
+
+<div class={`bento-box bento-${variant} ${className}`}>
+  <slot />
+</div>
+
+<style>
+  /* Base box styling */
+  .bento-box {
+    border-radius: 1.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  /* Individual box layouts */
+  .bento-hero {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  @media (min-width: 768px) {
+    .bento-hero {
+      grid-column: span 3;
+      grid-row: span 2;
+    }
+  }
+
+  .bento-photo {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  @media (min-width: 768px) {
+    .bento-photo {
+      grid-column: span 3;
+      grid-row: span 2;
+    }
+  }
+
+  .bento-about {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  @media (min-width: 768px) {
+    .bento-about {
+      grid-column: span 6;
+      grid-row: span 2;
+    }
+  }
+
+  .bento-tech {
+    grid-column: span 1;
+    grid-row: span 1;
+    aspect-ratio: 3 / 2;
+  }
+
+  .bento-contact {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  @media (min-width: 768px) {
+    .bento-contact {
+      grid-column: span 3;
+      grid-row: span 2;
+    }
+  }
+
+  .bento-cta {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  @media (min-width: 768px) {
+    .bento-cta {
+      grid-column: span 3;
+      grid-row: span 1;
+    }
+  }
+</style>
