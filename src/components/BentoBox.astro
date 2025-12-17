@@ -5,85 +5,17 @@ interface Props {
 }
 
 const { variant, class: className = '' } = Astro.props;
+
+const variantClasses = {
+  hero: 'col-span-2 row-span-2 md:col-span-3',
+  photo: 'col-span-2 row-span-2 md:col-span-3',
+  about: 'col-span-2 row-span-2 md:col-span-6',
+  tech: 'col-span-1 row-span-1 aspect-[3/2]',
+  contact: 'col-span-2 row-span-2 md:col-span-3',
+  cta: 'col-span-2 row-span-1 md:col-span-3',
+};
 ---
 
-<div class={`bento-box bento-${variant} ${className}`}>
+<div class={`rounded-lg border border-black/15 min-w-0 ${variantClasses[variant]} ${className}`}>
   <slot />
 </div>
-
-<style>
-  /* Base box styling */
-  .bento-box {
-    border-radius: 1.5rem;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    min-width: 0;
-    box-sizing: border-box;
-  }
-
-  /* Individual box layouts */
-  .bento-hero {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
-
-  @media (min-width: 768px) {
-    .bento-hero {
-      grid-column: span 3;
-      grid-row: span 2;
-    }
-  }
-
-  .bento-photo {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
-
-  @media (min-width: 768px) {
-    .bento-photo {
-      grid-column: span 3;
-      grid-row: span 2;
-    }
-  }
-
-  .bento-about {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
-
-  @media (min-width: 768px) {
-    .bento-about {
-      grid-column: span 6;
-      grid-row: span 2;
-    }
-  }
-
-  .bento-tech {
-    grid-column: span 1;
-    grid-row: span 1;
-    aspect-ratio: 3 / 2;
-  }
-
-  .bento-contact {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
-
-  @media (min-width: 768px) {
-    .bento-contact {
-      grid-column: span 3;
-      grid-row: span 2;
-    }
-  }
-
-  .bento-cta {
-    grid-column: span 2;
-    grid-row: span 1;
-  }
-
-  @media (min-width: 768px) {
-    .bento-cta {
-      grid-column: span 3;
-      grid-row: span 1;
-    }
-  }
-</style>

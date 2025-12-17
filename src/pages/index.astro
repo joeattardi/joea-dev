@@ -10,7 +10,7 @@ import photo from '../assets/joe.jpeg';
 
 <Layout>
     <!-- Bento Grid Container -->
-    <div class="bento-grid gap-3 md:gap-4">
+    <div class="grid grid-cols-2 md:grid-cols-6 auto-rows-[minmax(80px,auto)] md:auto-rows-[minmax(100px,auto)] gap-3 md:gap-4 w-full overflow-hidden">
         <!-- Main Hero Box -->
         <BentoBox variant="hero" class="bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 dark:from-blue-600 dark:via-purple-600 dark:to-pink-600 text-white p-8 md:p-12">
             <h1 class="text-4xl md:text-6xl font-bold font-serif mb-4">
@@ -51,32 +51,32 @@ import photo from '../assets/joe.jpeg';
         </BentoBox>
 
         <!-- JavaScript Box -->
-        <BentoBox variant="tech" class="bg-yellow-50 dark:bg-zinc-900 p-3 border-2 border-yellow-200 dark:border-yellow-900 hover:border-yellow-400 dark:hover:border-yellow-600 transition-colors flex items-center justify-center">
+        <BentoBox variant="tech" class="bg-yellow-50 dark:bg-zinc-900 p-3 border-yellow-200 dark:border-yellow-900 hover:border-yellow-400 dark:hover:border-yellow-600 transition-colors flex items-center justify-center">
             <Icon name="simple-icons:javascript" class="w-8 h-8 md:w-10 md:h-10 text-yellow-400" />
         </BentoBox>
 
         <!-- TypeScript Box -->
-        <BentoBox variant="tech" class="bg-blue-50 dark:bg-zinc-900 p-3 border-2 border-blue-200 dark:border-blue-900 hover:border-blue-400 dark:hover:border-blue-600 transition-colors flex items-center justify-center">
+        <BentoBox variant="tech" class="bg-blue-50 dark:bg-zinc-900 p-3 border-blue-200 dark:border-blue-900 hover:border-blue-400 dark:hover:border-blue-600 transition-colors flex items-center justify-center">
             <Icon name="simple-icons:typescript" class="w-8 h-8 md:w-10 md:h-10 text-blue-600" />
         </BentoBox>
 
         <!-- React Box -->
-        <BentoBox variant="tech" class="bg-cyan-50 dark:bg-zinc-900 p-3 border-2 border-cyan-200 dark:border-cyan-900 hover:border-cyan-400 dark:hover:border-cyan-600 transition-colors flex items-center justify-center">
+        <BentoBox variant="tech" class="bg-cyan-50 dark:bg-zinc-900 p-3 border-cyan-200 dark:border-cyan-900 hover:border-cyan-400 dark:hover:border-cyan-600 transition-colors flex items-center justify-center">
             <Icon name="simple-icons:react" class="w-8 h-8 md:w-10 md:h-10 text-cyan-400" />
         </BentoBox>
 
         <!-- Node.js Box -->
-        <BentoBox variant="tech" class="bg-green-50 dark:bg-zinc-900 p-3 border-2 border-green-200 dark:border-green-900 hover:border-green-400 dark:hover:border-green-600 transition-colors flex items-center justify-center">
+        <BentoBox variant="tech" class="bg-green-50 dark:bg-zinc-900 p-3 border-green-200 dark:border-green-900 hover:border-green-400 dark:hover:border-green-600 transition-colors flex items-center justify-center">
             <Icon name="simple-icons:nodedotjs" class="w-8 h-8 md:w-10 md:h-10 text-green-600" />
         </BentoBox>
 
         <!-- HTML Box -->
-        <BentoBox variant="tech" class="bg-orange-50 dark:bg-zinc-900 p-3 border-2 border-orange-200 dark:border-orange-900 hover:border-orange-400 dark:hover:border-orange-600 transition-colors flex items-center justify-center">
+        <BentoBox variant="tech" class="bg-orange-50 dark:bg-zinc-900 p-3 border-orange-200 dark:border-orange-900 hover:border-orange-400 dark:hover:border-orange-600 transition-colors flex items-center justify-center">
             <Icon name="simple-icons:html5" class="w-8 h-8 md:w-10 md:h-10 text-orange-500" />
         </BentoBox>
 
         <!-- CSS Box -->
-        <BentoBox variant="tech" class="bg-purple-50 dark:bg-zinc-900 p-3 border-2 border-purple-200 dark:border-purple-900 hover:border-purple-400 dark:hover:border-purple-600 transition-colors flex items-center justify-center">
+        <BentoBox variant="tech" class="bg-purple-50 dark:bg-zinc-900 p-3 border-purple-200 dark:border-purple-900 hover:border-purple-400 dark:hover:border-purple-600 transition-colors flex items-center justify-center">
             <Icon name="simple-icons:css3" class="w-8 h-8 md:w-10 md:h-10 text-blue-500" />
         </BentoBox>
 
@@ -105,22 +105,3 @@ import photo from '../assets/joe.jpeg';
         </BentoBox>
     </div>
 </Layout>
-
-<style>
-    /* Bento Grid Layout */
-    .bento-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: minmax(80px, auto);
-        box-sizing: border-box;
-        width: 100%;
-        overflow: hidden;
-    }
-
-    @media (min-width: 768px) {
-        .bento-grid {
-            grid-template-columns: repeat(6, 1fr);
-            grid-auto-rows: minmax(100px, auto);
-        }
-    }
-</style>
