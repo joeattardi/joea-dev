@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
 import SocialIconLink from '../components/SocialIconLink.astro';
 import Layout from '../layouts/Layout.astro';
 import Link from '../components/Link.astro';
@@ -32,10 +33,10 @@ import photo from '../assets/joe.jpeg';
                         Passionate about front-end development and modern JavaScript frameworks.
                     </p>
                     <div class="flex flex-wrap gap-4 justify-center md:justify-start">
-                        <a href="#contact" class="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-200">
+                        <a href="#contact" class="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-200 flex items-center">
                             Get in Touch
                         </a>
-                        <a href="/blog" class="px-8 py-3 bg-white dark:bg-zinc-700 text-zinc-800 dark:text-zinc-100 rounded-full font-medium border-2 border-zinc-300 dark:border-zinc-600 hover:border-purple-500 dark:hover:border-purple-400 hover:shadow-lg hover:scale-105 transition-all duration-200">
+                        <a href="/blog" class="px-8 py-3 bg-white dark:bg-zinc-700 text-zinc-800 dark:text-zinc-100 rounded-full font-medium border-2 border-zinc-300 dark:border-zinc-600 hover:border-purple-500 dark:hover:border-purple-400 hover:shadow-lg hover:scale-105 transition-all duration-200 flex items-center">
                             Read My Blog
                         </a>
                     </div>
@@ -74,12 +75,12 @@ import photo from '../assets/joe.jpeg';
     <!-- Skills Section -->
     <section class="mb-16">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold font-serif mb-12 text-center">Technical Skills</h2>
+            <h2 class="text-3xl md:text-4xl font-bold font-serif mb-12 text-center">My Toolbox</h2>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 <!-- JavaScript -->
                 <div class="bg-white dark:bg-zinc-900 rounded-xl p-6 shadow-lg border border-zinc-200 dark:border-zinc-700 hover:border-yellow-400 dark:hover:border-yellow-500 hover:shadow-xl hover:scale-105 transition-all duration-200">
                     <div class="flex flex-col items-center gap-3">
-                        <div class="w-12 h-12 flex items-center justify-center text-4xl">⚡</div>
+                        <Icon name="simple-icons:javascript" class="w-12 h-12 text-yellow-400" />
                         <h3 class="font-semibold text-zinc-800 dark:text-zinc-100">JavaScript</h3>
                     </div>
                 </div>
@@ -87,7 +88,7 @@ import photo from '../assets/joe.jpeg';
                 <!-- TypeScript -->
                 <div class="bg-white dark:bg-zinc-900 rounded-xl p-6 shadow-lg border border-zinc-200 dark:border-zinc-700 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-xl hover:scale-105 transition-all duration-200">
                     <div class="flex flex-col items-center gap-3">
-                        <div class="w-12 h-12 flex items-center justify-center text-4xl">📘</div>
+                        <Icon name="simple-icons:typescript" class="w-12 h-12 text-blue-600" />
                         <h3 class="font-semibold text-zinc-800 dark:text-zinc-100">TypeScript</h3>
                     </div>
                 </div>
@@ -95,7 +96,7 @@ import photo from '../assets/joe.jpeg';
                 <!-- React -->
                 <div class="bg-white dark:bg-zinc-900 rounded-xl p-6 shadow-lg border border-zinc-200 dark:border-zinc-700 hover:border-cyan-400 dark:hover:border-cyan-500 hover:shadow-xl hover:scale-105 transition-all duration-200">
                     <div class="flex flex-col items-center gap-3">
-                        <div class="w-12 h-12 flex items-center justify-center text-4xl">⚛️</div>
+                        <Icon name="simple-icons:react" class="w-12 h-12 text-cyan-400" />
                         <h3 class="font-semibold text-zinc-800 dark:text-zinc-100">React</h3>
                     </div>
                 </div>
@@ -103,7 +104,7 @@ import photo from '../assets/joe.jpeg';
                 <!-- CSS -->
                 <div class="bg-white dark:bg-zinc-900 rounded-xl p-6 shadow-lg border border-zinc-200 dark:border-zinc-700 hover:border-purple-400 dark:hover:border-purple-500 hover:shadow-xl hover:scale-105 transition-all duration-200">
                     <div class="flex flex-col items-center gap-3">
-                        <div class="w-12 h-12 flex items-center justify-center text-4xl">🎨</div>
+                        <Icon name="simple-icons:css3" class="w-12 h-12 text-blue-500" />
                         <h3 class="font-semibold text-zinc-800 dark:text-zinc-100">CSS</h3>
                     </div>
                 </div>
@@ -111,32 +112,32 @@ import photo from '../assets/joe.jpeg';
                 <!-- Node.js -->
                 <div class="bg-white dark:bg-zinc-900 rounded-xl p-6 shadow-lg border border-zinc-200 dark:border-zinc-700 hover:border-green-400 dark:hover:border-green-500 hover:shadow-xl hover:scale-105 transition-all duration-200">
                     <div class="flex flex-col items-center gap-3">
-                        <div class="w-12 h-12 flex items-center justify-center text-4xl">🟢</div>
+                        <Icon name="simple-icons:nodedotjs" class="w-12 h-12 text-green-600" />
                         <h3 class="font-semibold text-zinc-800 dark:text-zinc-100">Node.js</h3>
                     </div>
                 </div>
 
-                <!-- Web APIs -->
+                <!-- HTML5 -->
                 <div class="bg-white dark:bg-zinc-900 rounded-xl p-6 shadow-lg border border-zinc-200 dark:border-zinc-700 hover:border-orange-400 dark:hover:border-orange-500 hover:shadow-xl hover:scale-105 transition-all duration-200">
                     <div class="flex flex-col items-center gap-3">
-                        <div class="w-12 h-12 flex items-center justify-center text-4xl">🌐</div>
-                        <h3 class="font-semibold text-zinc-800 dark:text-zinc-100">Web APIs</h3>
+                        <Icon name="simple-icons:html5" class="w-12 h-12 text-orange-500" />
+                        <h3 class="font-semibold text-zinc-800 dark:text-zinc-100">HTML5</h3>
                     </div>
                 </div>
 
-                <!-- Git -->
-                <div class="bg-white dark:bg-zinc-900 rounded-xl p-6 shadow-lg border border-zinc-200 dark:border-zinc-700 hover:border-red-400 dark:hover:border-red-500 hover:shadow-xl hover:scale-105 transition-all duration-200">
+                <!-- Tailwind CSS -->
+                <div class="bg-white dark:bg-zinc-900 rounded-xl p-6 shadow-lg border border-zinc-200 dark:border-zinc-700 hover:border-cyan-400 dark:hover:border-cyan-500 hover:shadow-xl hover:scale-105 transition-all duration-200">
                     <div class="flex flex-col items-center gap-3">
-                        <div class="w-12 h-12 flex items-center justify-center text-4xl">🔧</div>
-                        <h3 class="font-semibold text-zinc-800 dark:text-zinc-100">Git</h3>
+                        <Icon name="simple-icons:tailwindcss" class="w-12 h-12 text-cyan-500" />
+                        <h3 class="font-semibold text-zinc-800 dark:text-zinc-100">Tailwind CSS</h3>
                     </div>
                 </div>
 
-                <!-- Testing -->
-                <div class="bg-white dark:bg-zinc-900 rounded-xl p-6 shadow-lg border border-zinc-200 dark:border-zinc-700 hover:border-teal-400 dark:hover:border-teal-500 hover:shadow-xl hover:scale-105 transition-all duration-200">
+                <!-- Java -->
+                <div class="bg-white dark:bg-zinc-900 rounded-xl p-6 shadow-lg border border-zinc-200 dark:border-zinc-700 hover:border-orange-400 dark:hover:border-orange-500 hover:shadow-xl hover:scale-105 transition-all duration-200">
                     <div class="flex flex-col items-center gap-3">
-                        <div class="w-12 h-12 flex items-center justify-center text-4xl">✅</div>
-                        <h3 class="font-semibold text-zinc-800 dark:text-zinc-100">Testing</h3>
+                        <Icon name="simple-icons:openjdk" class="w-12 h-12 text-orange-600" />
+                        <h3 class="font-semibold text-zinc-800 dark:text-zinc-100">Java</h3>
                     </div>
                 </div>
             </div>

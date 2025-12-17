@@ -14,6 +14,7 @@
         "@fontsource-variable/roboto": "^5.2.8",
         "@iconify-json/fa7-brands": "^1.2.0",
         "@iconify-json/ph": "^1.2.2",
+        "@iconify-json/simple-icons": "^1.2.63",
         "@tailwindcss/vite": "^4.1.13",
         "astro": "^5.14.0",
         "astro-icon": "^1.1.5",
