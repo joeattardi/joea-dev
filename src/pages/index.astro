@@ -73,36 +73,54 @@ const publishedDate = latestPost ? new Date(latestPost.publishedAt).toLocaleDate
         <!-- Tech Stack Container -->
         <BentoBox variant="contact" animationDelay={300} class="col-span-2! md:col-span-6! bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm p-6 md:p-8">
             <h2 class="text-2xl md:text-3xl font-bold font-serif mb-6">My Tech Stack</h2>
-            <div class="grid grid-cols-3 md:grid-cols-6 gap-3 md:gap-4">
+            <div class="grid grid-cols-3 md:grid-cols-6 gap-x-3 gap-y-8 md:gap-x-4 md:gap-y-4">
                 <!-- JavaScript Box -->
-                <BentoBox variant="tech" class="group bg-yellow-50 dark:bg-zinc-900 p-3 border-yellow-200 dark:border-yellow-900 hover:border-yellow-400 dark:hover:border-yellow-600 transition-all flex items-center justify-center hover:bg-yellow-100 dark:hover:bg-zinc-800">
-                    <Icon name="simple-icons:javascript" class="w-8 h-8 md:w-10 md:h-10 text-yellow-400 transition-transform duration-300 group-hover:scale-125 group-hover:rotate-12" />
-                </BentoBox>
+                <div class="group relative">
+                    <BentoBox variant="tech" class="bg-yellow-50 dark:bg-zinc-900 p-3 border-yellow-200 dark:border-yellow-900 hover:border-yellow-400 dark:hover:border-yellow-600 transition-all flex items-center justify-center hover:bg-yellow-100 dark:hover:bg-zinc-800">
+                        <Icon name="simple-icons:javascript" class="w-8 h-8 md:w-10 md:h-10 text-yellow-400 transition-transform duration-300 group-hover:scale-110" />
+                    </BentoBox>
+                    <span class="absolute -bottom-5 left-0 right-0 text-center text-xs font-medium text-yellow-600 dark:text-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">JavaScript</span>
+                </div>
 
                 <!-- TypeScript Box -->
-                <BentoBox variant="tech" class="group bg-blue-50 dark:bg-zinc-900 p-3 border-blue-200 dark:border-blue-900 hover:border-blue-400 dark:hover:border-blue-600 transition-all flex items-center justify-center hover:bg-blue-100 dark:hover:bg-zinc-800">
-                    <Icon name="simple-icons:typescript" class="w-8 h-8 md:w-10 md:h-10 text-blue-600 transition-transform duration-300 group-hover:scale-125 group-hover:rotate-12" />
-                </BentoBox>
+                <div class="group relative">
+                    <BentoBox variant="tech" class="bg-blue-50 dark:bg-zinc-900 p-3 border-blue-200 dark:border-blue-900 hover:border-blue-400 dark:hover:border-blue-600 transition-all flex items-center justify-center hover:bg-blue-100 dark:hover:bg-zinc-800">
+                        <Icon name="simple-icons:typescript" class="w-8 h-8 md:w-10 md:h-10 text-blue-600 transition-transform duration-300 group-hover:scale-110" />
+                    </BentoBox>
+                    <span class="absolute -bottom-5 left-0 right-0 text-center text-xs font-medium text-blue-600 dark:text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">TypeScript</span>
+                </div>
 
                 <!-- React Box -->
-                <BentoBox variant="tech" class="group bg-cyan-50 dark:bg-zinc-900 p-3 border-cyan-200 dark:border-cyan-900 hover:border-cyan-400 dark:hover:border-cyan-600 transition-all flex items-center justify-center hover:bg-cyan-100 dark:hover:bg-zinc-800">
-                    <Icon name="simple-icons:react" class="w-8 h-8 md:w-10 md:h-10 text-cyan-400 transition-transform duration-300 group-hover:scale-125 group-hover:rotate-180" />
-                </BentoBox>
+                <div class="group relative">
+                    <BentoBox variant="tech" class="bg-cyan-50 dark:bg-zinc-900 p-3 border-cyan-200 dark:border-cyan-900 hover:border-cyan-400 dark:hover:border-cyan-600 transition-all flex items-center justify-center hover:bg-cyan-100 dark:hover:bg-zinc-800">
+                        <Icon name="simple-icons:react" class="w-8 h-8 md:w-10 md:h-10 text-cyan-400 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-180" />
+                    </BentoBox>
+                    <span class="absolute -bottom-5 left-0 right-0 text-center text-xs font-medium text-cyan-600 dark:text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">React</span>
+                </div>
 
                 <!-- Node.js Box -->
-                <BentoBox variant="tech" class="group bg-green-50 dark:bg-zinc-900 p-3 border-green-200 dark:border-green-900 hover:border-green-400 dark:hover:border-green-600 transition-all flex items-center justify-center hover:bg-green-100 dark:hover:bg-zinc-800">
-                    <Icon name="simple-icons:nodedotjs" class="w-8 h-8 md:w-10 md:h-10 text-green-600 transition-transform duration-300 group-hover:scale-125 group-hover:rotate-12" />
-                </BentoBox>
+                <div class="group relative">
+                    <BentoBox variant="tech" class="bg-green-50 dark:bg-zinc-900 p-3 border-green-200 dark:border-green-900 hover:border-green-400 dark:hover:border-green-600 transition-all flex items-center justify-center hover:bg-green-100 dark:hover:bg-zinc-800">
+                        <Icon name="simple-icons:nodedotjs" class="w-8 h-8 md:w-10 md:h-10 text-green-600 transition-transform duration-300 group-hover:scale-110" />
+                    </BentoBox>
+                    <span class="absolute -bottom-5 left-0 right-0 text-center text-xs font-medium text-green-600 dark:text-green-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Node.js</span>
+                </div>
 
                 <!-- HTML Box -->
-                <BentoBox variant="tech" class="group bg-orange-50 dark:bg-zinc-900 p-3 border-orange-200 dark:border-orange-900 hover:border-orange-400 dark:hover:border-orange-600 transition-all flex items-center justify-center hover:bg-orange-100 dark:hover:bg-zinc-800">
-                    <Icon name="simple-icons:html5" class="w-8 h-8 md:w-10 md:h-10 text-orange-500 transition-transform duration-300 group-hover:scale-125 group-hover:rotate-12" />
-                </BentoBox>
+                <div class="group relative">
+                    <BentoBox variant="tech" class="bg-orange-50 dark:bg-zinc-900 p-3 border-orange-200 dark:border-orange-900 hover:border-orange-400 dark:hover:border-orange-600 transition-all flex items-center justify-center hover:bg-orange-100 dark:hover:bg-zinc-800">
+                        <Icon name="simple-icons:html5" class="w-8 h-8 md:w-10 md:h-10 text-orange-500 transition-transform duration-300 group-hover:scale-110" />
+                    </BentoBox>
+                    <span class="absolute -bottom-5 left-0 right-0 text-center text-xs font-medium text-orange-600 dark:text-orange-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">HTML</span>
+                </div>
 
                 <!-- CSS Box -->
-                <BentoBox variant="tech" class="group bg-purple-50 dark:bg-zinc-900 p-3 border-purple-200 dark:border-purple-900 hover:border-purple-400 dark:hover:border-purple-600 transition-all flex items-center justify-center hover:bg-purple-100 dark:hover:bg-zinc-800">
-                    <Icon name="simple-icons:css3" class="w-8 h-8 md:w-10 md:h-10 text-blue-500 transition-transform duration-300 group-hover:scale-125 group-hover:rotate-12" />
-                </BentoBox>
+                <div class="group relative">
+                    <BentoBox variant="tech" class="bg-purple-50 dark:bg-zinc-900 p-3 border-purple-200 dark:border-purple-900 hover:border-purple-400 dark:hover:border-purple-600 transition-all flex items-center justify-center hover:bg-purple-100 dark:hover:bg-zinc-800">
+                        <Icon name="simple-icons:css3" class="w-8 h-8 md:w-10 md:h-10 text-blue-500 transition-transform duration-300 group-hover:scale-110" />
+                    </BentoBox>
+                    <span class="absolute -bottom-5 left-0 right-0 text-center text-xs font-medium text-blue-600 dark:text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">CSS</span>
+                </div>
             </div>
         </BentoBox>
 
@@ -137,34 +155,46 @@ const publishedDate = latestPost ? new Date(latestPost.publishedAt).toLocaleDate
             <p class="text-base text-zinc-700 dark:text-zinc-300 mb-6">
                 I'd love to hear from you! Whether you have a question, want to collaborate, or just want to say hi.
             </p>
-            <div class="grid grid-cols-4 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+            <div class="grid grid-cols-4 md:grid-cols-2 lg:grid-cols-4 gap-x-3 gap-y-8 md:gap-x-4 md:gap-y-8">
                 <!-- Email Box -->
-                <a href="mailto:jattardi@gmail.com" title="Email" class="block group">
-                    <BentoBox variant="tech" class="bg-blue-50 dark:bg-zinc-900 p-3 border-blue-200 dark:border-blue-900 hover:border-blue-400 dark:hover:border-blue-600 transition-all flex items-center justify-center h-full hover:bg-blue-100 dark:hover:bg-zinc-800">
-                        <Icon name="ph:envelope" class="w-8 h-8 md:w-10 md:h-10 text-blue-600 dark:text-blue-400 transition-transform duration-300 group-hover:scale-125 group-hover:-rotate-12" />
-                    </BentoBox>
-                </a>
+                <div class="group relative">
+                    <a href="mailto:jattardi@gmail.com" title="Email" class="block">
+                        <BentoBox variant="tech" class="bg-blue-50 dark:bg-zinc-900 p-3 border-blue-200 dark:border-blue-900 hover:border-blue-400 dark:hover:border-blue-600 transition-all flex items-center justify-center h-full hover:bg-blue-100 dark:hover:bg-zinc-800">
+                            <Icon name="ph:envelope" class="w-8 h-8 md:w-10 md:h-10 text-blue-600 dark:text-blue-400 transition-transform duration-300 group-hover:scale-125 group-hover:-rotate-12" />
+                        </BentoBox>
+                    </a>
+                    <span class="absolute -bottom-5 left-0 right-0 text-center text-xs font-medium text-blue-600 dark:text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Email</span>
+                </div>
 
                 <!-- X Box -->
-                <a href="https://x.com/joeattardi" title="X" class="block group">
-                    <BentoBox variant="tech" class="bg-zinc-50 dark:bg-zinc-900 p-3 border-zinc-200 dark:border-zinc-700 hover:border-zinc-400 dark:hover:border-zinc-500 transition-all flex items-center justify-center h-full hover:bg-zinc-100 dark:hover:bg-zinc-800">
-                        <Icon name="fa7-brands:x-twitter" class="w-8 h-8 md:w-10 md:h-10 text-zinc-800 dark:text-zinc-100 transition-transform duration-300 group-hover:scale-125 group-hover:rotate-12" />
-                    </BentoBox>
-                </a>
+                <div class="group relative">
+                    <a href="https://x.com/joeattardi" title="X" class="block">
+                        <BentoBox variant="tech" class="bg-zinc-50 dark:bg-zinc-900 p-3 border-zinc-200 dark:border-zinc-700 hover:border-zinc-400 dark:hover:border-zinc-500 transition-all flex items-center justify-center h-full hover:bg-zinc-100 dark:hover:bg-zinc-800">
+                            <Icon name="fa7-brands:x-twitter" class="w-8 h-8 md:w-10 md:h-10 text-zinc-800 dark:text-zinc-100 transition-transform duration-300 group-hover:scale-125 group-hover:rotate-12" />
+                        </BentoBox>
+                    </a>
+                    <span class="absolute -bottom-5 left-0 right-0 text-center text-xs font-medium text-zinc-600 dark:text-zinc-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">X</span>
+                </div>
 
                 <!-- GitHub Box -->
-                <a href="https://github.com/joeattardi" title="GitHub" class="block group">
-                    <BentoBox variant="tech" class="bg-purple-50 dark:bg-zinc-900 p-3 border-purple-200 dark:border-purple-900 hover:border-purple-400 dark:hover:border-purple-600 transition-all flex items-center justify-center h-full hover:bg-purple-100 dark:hover:bg-zinc-800">
-                        <Icon name="fa7-brands:github" class="w-8 h-8 md:w-10 md:h-10 text-purple-600 dark:text-purple-400 transition-transform duration-300 group-hover:scale-125 group-hover:rotate-12" />
-                    </BentoBox>
-                </a>
+                <div class="group relative">
+                    <a href="https://github.com/joeattardi" title="GitHub" class="block">
+                        <BentoBox variant="tech" class="bg-purple-50 dark:bg-zinc-900 p-3 border-purple-200 dark:border-purple-900 hover:border-purple-400 dark:hover:border-purple-600 transition-all flex items-center justify-center h-full hover:bg-purple-100 dark:hover:bg-zinc-800">
+                            <Icon name="fa7-brands:github" class="w-8 h-8 md:w-10 md:h-10 text-purple-600 dark:text-purple-400 transition-transform duration-300 group-hover:scale-125 group-hover:rotate-12" />
+                        </BentoBox>
+                    </a>
+                    <span class="absolute -bottom-5 left-0 right-0 text-center text-xs font-medium text-purple-600 dark:text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">GitHub</span>
+                </div>
 
                 <!-- LinkedIn Box -->
-                <a href="https://linkedin.com/in/joeattardi" title="LinkedIn" class="block group">
-                    <BentoBox variant="tech" class="bg-cyan-50 dark:bg-zinc-900 p-3 border-cyan-200 dark:border-cyan-900 hover:border-cyan-400 dark:hover:border-cyan-600 transition-all flex items-center justify-center h-full hover:bg-cyan-100 dark:hover:bg-zinc-800">
-                        <Icon name="fa7-brands:linkedin" class="w-8 h-8 md:w-10 md:h-10 text-cyan-600 dark:text-cyan-400 transition-transform duration-300 group-hover:scale-125 group-hover:-rotate-12" />
-                    </BentoBox>
-                </a>
+                <div class="group relative">
+                    <a href="https://linkedin.com/in/joeattardi" title="LinkedIn" class="block">
+                        <BentoBox variant="tech" class="bg-cyan-50 dark:bg-zinc-900 p-3 border-cyan-200 dark:border-cyan-900 hover:border-cyan-400 dark:hover:border-cyan-600 transition-all flex items-center justify-center h-full hover:bg-cyan-100 dark:hover:bg-zinc-800">
+                            <Icon name="fa7-brands:linkedin" class="w-8 h-8 md:w-10 md:h-10 text-cyan-600 dark:text-cyan-400 transition-transform duration-300 group-hover:scale-125 group-hover:-rotate-12" />
+                        </BentoBox>
+                    </a>
+                    <span class="absolute -bottom-5 left-0 right-0 text-center text-xs font-medium text-cyan-600 dark:text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">LinkedIn</span>
+                </div>
             </div>
         </BentoBox>
     </div>
