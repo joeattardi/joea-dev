@@ -1,6 +1,11 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
+/* Always show scrollbar to prevent layout shift */
+html {
+    overflow-y: scroll;
+}
+
 /* Animated gradient for hero */
 @keyframes gradient-shift {
   0%, 100% { background-position: 0% 50%; }
