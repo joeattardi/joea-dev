@@ -1,18 +1,46 @@
-<div class="logo flex items-center gap-2">
-    <div
-        class="monogram rounded-full border-4 text-lg border-black dark:border-white w-10 h-10 flex items-center justify-center"
-    >
-        <div class="text font-semibold flex item-center">
-            <span>J</span>
-            <span>A</span>
+<div class="logo group flex items-center gap-2">
+    <div class="monogram-wrapper relative w-10 h-10">
+        <div
+            class="monogram-ring absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        >
+        </div>
+        <div
+            class="monogram relative rounded-full border-4 text-lg border-black dark:border-white w-10 h-10 flex items-center justify-center bg-white dark:bg-zinc-900 transition-all duration-300 group-hover:scale-110"
+        >
+            <div class="text font-semibold flex item-center">
+                <span class="transition-colors duration-300">J</span>
+                <span class="transition-colors duration-300">A</span>
+            </div>
         </div>
     </div>
-    <h1 class="text-lg font-semibold">Joe Attardi</h1>
+    <h1 class="text-lg font-semibold transition-all duration-300">Joe Attardi</h1>
 </div>
 
 <style>
-    .logo {
-        transition: all 250ms;
+    .monogram-ring {
+        background: conic-gradient(
+            from 0deg,
+            var(--color-blue-500),
+            var(--color-violet-500),
+            var(--color-pink-500),
+            var(--color-violet-500),
+            var(--color-blue-500)
+        );
+        filter: blur(6px);
+        animation: spin 3s linear infinite paused;
+    }
+
+    .logo:hover .monogram-ring {
+        animation-play-state: running;
+    }
+
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
     }
 
     .logo:hover .text {
@@ -26,14 +54,25 @@
     }
 
     .logo:hover .monogram {
-        border-top-color: var(--color-violet-400);
-        border-right-color: var(--color-violet-600);
-        border-bottom-color: var(--color-blue-400);
-        border-left-color: var(--color-blue-600);
+        border-color: transparent;
+        box-shadow:
+            0 0 0 4px var(--color-blue-500),
+            0 0 20px var(--color-blue-400);
+    }
+
+    .logo h1 {
+        background: linear-gradient(
+            90deg,
+            var(--color-blue-600),
+            var(--color-violet-600)
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: black;
     }
 
     .logo:hover h1 {
-        color: var(--color-blue-600);
+        color: transparent;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -48,14 +87,23 @@
         }
 
         .logo:hover .monogram {
-            border-top-color: var(--color-violet-200);
-            border-right-color: var(--color-violet-300);
-            border-bottom-color: var(--color-blue-200);
-            border-left-color: var(--color-blue-300);
+            border-color: transparent;
+            box-shadow:
+                0 0 0 4px var(--color-blue-400),
+                0 0 20px var(--color-blue-300);
+        }
+
+        .logo h1 {
+            background: linear-gradient(
+                90deg,
+                var(--color-blue-300),
+                var(--color-violet-300)
+            );
+            color: white;
         }
 
         .logo:hover h1 {
-            color: var(--color-blue-300);
+            color: transparent;
         }
     }
 </style>
