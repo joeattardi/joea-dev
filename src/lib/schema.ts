@@ -30,8 +30,8 @@ export const PostSchema = z.object({
 });
 
 export const AllPostsDataSchema = z.object({
-    id: z.string(),
     publication: z.object({
+        id: z.string(),
         title: z.string(),
         posts: z.object({
             pageInfo: z.object({
@@ -48,9 +48,8 @@ export const AllPostsDataSchema = z.object({
 });
 
 export const PostDataSchema = z.object({
-    id: z.string(),
     publication: z.object({
-        title: z.string(),
+        id: z.string(),
         post: PostSchema
     })
 });

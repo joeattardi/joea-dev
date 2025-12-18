@@ -50,11 +50,13 @@ const formatDate = (dateString: string) => {
 
     <div class="relative grid grid-cols-2 md:grid-cols-6 auto-rows-[minmax(80px,auto)] md:auto-rows-[minmax(100px,auto)] gap-3 md:gap-4 w-full">
         <!-- Blog Header -->
-        <BentoBox variant="about" animationDelay={0} class="bg-linear-to-br from-purple-500 via-pink-500 to-orange-500 dark:from-purple-600 dark:via-pink-600 dark:to-orange-600 bg-size-[200%_200%] animate-[gradient-shift_8s_ease-in-out_infinite] text-white p-8 md:p-12">
-            <h1 class="text-4xl md:text-5xl font-bold font-serif mb-4">Blog</h1>
-            <p class="text-lg opacity-90 max-w-2xl">
-                Thoughts, tutorials, and insights about web development, JavaScript, and the modern web platform.
-            </p>
+        <BentoBox variant="about" animationDelay={0} class="bg-linear-to-br from-purple-500 via-pink-500 to-orange-500 dark:from-purple-600 dark:via-pink-600 dark:to-orange-600 bg-size-[200%_200%] animate-[gradient-shift_8s_ease-in-out_infinite] text-white">
+            <a href="/blog" class="block p-8 md:p-12 hover:opacity-90 transition-opacity">
+                <h1 class="text-4xl md:text-5xl font-bold font-serif mb-4">Blog</h1>
+                <p class="text-lg opacity-90 max-w-2xl">
+                    Thoughts, tutorials, and insights about web development, JavaScript, and the modern web platform.
+                </p>
+            </a>
         </BentoBox>
 
         {isFirstPage && (
@@ -157,18 +159,6 @@ const formatDate = (dateString: string) => {
                     </BentoBox>
                 )}
             </>
-        )}
-
-        <!-- Section Header for More Posts (first page only) -->
-        {isFirstPage && page.data.length > 0 && (
-            <BentoBox variant="about" animationDelay={500} class="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm p-6 md:p-8">
-                <h2 class="text-2xl md:text-3xl font-bold font-serif mb-2">
-                    More Articles
-                </h2>
-                <p class="text-zinc-600 dark:text-zinc-400">
-                    Explore more posts from the archive
-                </p>
-            </BentoBox>
         )}
 
         <!-- Post Grid -->
