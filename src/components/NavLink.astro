@@ -4,17 +4,25 @@ const targetUrl = new URL(href, Astro.url.href);
 const isActive = Astro.url.pathname.startsWith(targetUrl.pathname);
 ---
 
-<li>
+<li class="relative">
     <a
         href={href}
         class:list={[
-            'block px-4 py-1 transition-colors font-medium rounded-full',
-            'text-4xl md:text-base',
-            'dark:text-zinc-300 dark:hover:bg-zinc-200 dark:hover:text-zinc-800',
-            { 'dark:bg-zinc-200 bg-zinc-600 dark:text-zinc-800 text-white': isActive },
-            { 'text-zinc-600 hover:bg-zinc-200': !isActive }
+            'group relative block px-4 py-2 md:px-3 md:py-2 font-medium text-4xl md:text-sm tracking-wide no-underline transition-colors duration-300',
+            'text-zinc-600 hover:text-zinc-900',
+            'dark:text-zinc-400 dark:hover:text-zinc-100',
+            { 'text-zinc-800 dark:text-zinc-200': isActive }
         ]}
     >
-        <slot />
+        <span class="relative z-10"><slot /></span>
+        <span
+            class:list={[
+                'absolute bottom-1 left-[15%] right-[15%] h-0.5 rounded-sm origin-center transition-transform duration-300 ease-out',
+                'bg-linear-to-r from-blue-500 to-purple-500',
+                'dark:from-blue-400 dark:to-purple-400',
+                'scale-x-0 group-hover:scale-x-100',
+                { 'scale-x-100 from-blue-600 to-purple-600 dark:from-blue-300 dark:to-purple-300': isActive }
+            ]}
+        ></span>
     </a>
 </li>
