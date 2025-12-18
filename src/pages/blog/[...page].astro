@@ -1,8 +1,8 @@
 ---
 import type { Page, GetStaticPaths } from 'astro';
-import PostCard from '../../components/blog/PostCard.astro';
-import PostListItem from '../../components/blog/PostListItem.astro';
+import { Icon } from 'astro-icon/components';
 import Layout from '../../layouts/Layout.astro';
+import BentoBox from '../../components/BentoBox.astro';
 import { getAllPosts } from '../../lib/client';
 import type { AllPostsData } from '../../lib/schema';
 
@@ -10,8 +10,8 @@ export const getStaticPaths = (async ({ paginate }) => {
     const data = await getAllPosts();
     const allPosts = data.publication.posts.edges;
 
-    const featuredPosts = allPosts.slice(0, 3);
-    const otherPosts = allPosts.slice(3);
+    const featuredPosts = allPosts.slice(0, 4);
+    const otherPosts = allPosts.slice(4);
 
     return paginate(otherPosts, {
         pageSize: 6,
@@ -26,37 +26,220 @@ type Props = {
 
 const { page, featuredPosts } = Astro.props as Props;
 const isFirstPage = page.currentPage === 1;
+
+const formatDate = (dateString: string) => {
+    return new Date(dateString).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+};
 ---
 
 <Layout title="Blog">
-    <div class="flex flex-col gap-4">
-        {isFirstPage && (
-            <div class="flex flex-col gap-4">
-                <h2 class="text-2xl font-serif">Latest Posts</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    {featuredPosts.map((post) => <PostCard post={post.node} />)}
-                </div>
-            </div>
-        )}
-        <div class="flex flex-col gap-4">
-            {
-                page.data.map((post) => (
-                    <PostListItem post={post.node} />
-                ))
-            }
-        </div>
+    <!-- Background Pattern & Decorative Elements -->
+    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <!-- Dot pattern -->
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.07)_1px,transparent_0)] dark:bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.05)_1px,transparent_0)] bg-size-[24px_24px]"></div>
 
-        <div class="flex justify-center gap-4 items-center">
-            {page.url.prev && (
-                <a href={page.url.prev} class="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors">
-                    ← Previous
+        <!-- Floating gradient blobs -->
+        <div class="absolute top-20 -left-32 w-96 h-96 bg-linear-to-br from-blue-400/20 to-purple-500/20 dark:from-blue-500/10 dark:to-purple-600/10 rounded-full blur-3xl animate-[float_12s_ease-in-out_infinite]"></div>
+        <div class="absolute top-1/2 -right-32 w-80 h-80 bg-linear-to-br from-pink-400/20 to-orange-400/20 dark:from-pink-500/10 dark:to-orange-500/10 rounded-full blur-3xl animate-[float-delayed_15s_ease-in-out_infinite]"></div>
+        <div class="absolute -bottom-20 left-1/3 w-72 h-72 bg-linear-to-br from-cyan-400/15 to-blue-400/15 dark:from-cyan-500/10 dark:to-blue-500/10 rounded-full blur-3xl animate-[float_18s_ease-in-out_infinite]"></div>
+    </div>
+
+    <div class="relative grid grid-cols-2 md:grid-cols-6 auto-rows-[minmax(80px,auto)] md:auto-rows-[minmax(100px,auto)] gap-3 md:gap-4 w-full">
+        <!-- Blog Header -->
+        <BentoBox variant="about" animationDelay={0} class="bg-linear-to-br from-purple-500 via-pink-500 to-orange-500 dark:from-purple-600 dark:via-pink-600 dark:to-orange-600 bg-size-[200%_200%] animate-[gradient-shift_8s_ease-in-out_infinite] text-white p-8 md:p-12">
+            <h1 class="text-4xl md:text-5xl font-bold font-serif mb-4">Blog</h1>
+            <p class="text-lg opacity-90 max-w-2xl">
+                Thoughts, tutorials, and insights about web development, JavaScript, and the modern web platform.
+            </p>
+        </BentoBox>
+
+        {isFirstPage && (
+            <>
+                <!-- Featured Post - Large -->
+                <BentoBox variant="hero" animationDelay={100} class="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm overflow-hidden">
+                    <a href={`/blog/${featuredPosts[0].node.slug}`} class="block h-full group">
+                        <div class="relative h-full">
+                            <img
+                                src={featuredPosts[0].node.coverImage.url}
+                                alt={featuredPosts[0].node.title}
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            />
+                            <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                                <span class="inline-block px-3 py-1 text-xs font-medium bg-white/20 backdrop-blur-sm rounded-full text-white mb-3">
+                                    Featured
+                                </span>
+                                <h2 class="text-2xl md:text-3xl font-bold font-serif text-white mb-2 line-clamp-2 group-hover:text-purple-200 transition-colors">
+                                    {featuredPosts[0].node.title}
+                                </h2>
+                                <p class="text-sm text-white/80 line-clamp-2 mb-3">{featuredPosts[0].node.brief}</p>
+                                <time class="text-xs text-white/60" datetime={featuredPosts[0].node.publishedAt}>
+                                    {formatDate(featuredPosts[0].node.publishedAt)}
+                                </time>
+                            </div>
+                        </div>
+                    </a>
+                </BentoBox>
+
+                <!-- Featured Post 2 -->
+                {featuredPosts[1] && (
+                    <BentoBox variant="contact" animationDelay={200} class="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm overflow-hidden">
+                        <a href={`/blog/${featuredPosts[1].node.slug}`} class="block h-full group">
+                            <div class="relative">
+                                <img
+                                    src={featuredPosts[1].node.coverImage.url}
+                                    alt={featuredPosts[1].node.title}
+                                    class="w-full h-32 md:h-40 object-cover transition-transform duration-500 group-hover:scale-105"
+                                />
+                            </div>
+                            <div class="p-5 md:p-6">
+                                <h3 class="text-lg md:text-xl font-bold font-serif mb-2 line-clamp-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                                    {featuredPosts[1].node.title}
+                                </h3>
+                                <p class="text-sm text-zinc-600 dark:text-zinc-400 line-clamp-2 mb-3">{featuredPosts[1].node.brief}</p>
+                                <time class="text-xs text-zinc-500" datetime={featuredPosts[1].node.publishedAt}>
+                                    {formatDate(featuredPosts[1].node.publishedAt)}
+                                </time>
+                            </div>
+                        </a>
+                    </BentoBox>
+                )}
+
+                <!-- Featured Post 3 -->
+                {featuredPosts[2] && (
+                    <BentoBox variant="contact" animationDelay={300} class="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm overflow-hidden">
+                        <a href={`/blog/${featuredPosts[2].node.slug}`} class="block h-full group">
+                            <div class="relative">
+                                <img
+                                    src={featuredPosts[2].node.coverImage.url}
+                                    alt={featuredPosts[2].node.title}
+                                    class="w-full h-32 md:h-40 object-cover transition-transform duration-500 group-hover:scale-105"
+                                />
+                            </div>
+                            <div class="p-5 md:p-6">
+                                <h3 class="text-lg md:text-xl font-bold font-serif mb-2 line-clamp-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                                    {featuredPosts[2].node.title}
+                                </h3>
+                                <p class="text-sm text-zinc-600 dark:text-zinc-400 line-clamp-2 mb-3">{featuredPosts[2].node.brief}</p>
+                                <time class="text-xs text-zinc-500" datetime={featuredPosts[2].node.publishedAt}>
+                                    {formatDate(featuredPosts[2].node.publishedAt)}
+                                </time>
+                            </div>
+                        </a>
+                    </BentoBox>
+                )}
+
+                <!-- Featured Post 4 -->
+                {featuredPosts[3] && (
+                    <BentoBox variant="contact" animationDelay={400} class="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm overflow-hidden">
+                        <a href={`/blog/${featuredPosts[3].node.slug}`} class="block h-full group">
+                            <div class="relative">
+                                <img
+                                    src={featuredPosts[3].node.coverImage.url}
+                                    alt={featuredPosts[3].node.title}
+                                    class="w-full h-32 md:h-40 object-cover transition-transform duration-500 group-hover:scale-105"
+                                />
+                            </div>
+                            <div class="p-5 md:p-6">
+                                <h3 class="text-lg md:text-xl font-bold font-serif mb-2 line-clamp-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                                    {featuredPosts[3].node.title}
+                                </h3>
+                                <p class="text-sm text-zinc-600 dark:text-zinc-400 line-clamp-2 mb-3">{featuredPosts[3].node.brief}</p>
+                                <time class="text-xs text-zinc-500" datetime={featuredPosts[3].node.publishedAt}>
+                                    {formatDate(featuredPosts[3].node.publishedAt)}
+                                </time>
+                            </div>
+                        </a>
+                    </BentoBox>
+                )}
+            </>
+        )}
+
+        <!-- Section Header for More Posts (first page only) -->
+        {isFirstPage && page.data.length > 0 && (
+            <BentoBox variant="about" animationDelay={500} class="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm p-6 md:p-8">
+                <h2 class="text-2xl md:text-3xl font-bold font-serif mb-2">
+                    More Articles
+                </h2>
+                <p class="text-zinc-600 dark:text-zinc-400">
+                    Explore more posts from the archive
+                </p>
+            </BentoBox>
+        )}
+
+        <!-- Post Grid -->
+        {page.data.map((post, index) => (
+            <BentoBox
+                variant="contact"
+                animationDelay={(isFirstPage ? 600 : 100) + index * 100}
+                class="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm overflow-hidden"
+            >
+                <a href={`/blog/${post.node.slug}`} class="flex flex-col md:flex-row h-full group">
+                    {post.node.coverImage?.url ? (
+                        <div class="md:w-48 shrink-0 overflow-hidden">
+                            <img
+                                src={post.node.coverImage.url}
+                                alt={post.node.title}
+                                class="w-full h-32 md:h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            />
+                        </div>
+                    ) : (
+                        <div class="md:w-48 shrink-0 h-32 md:h-full flex items-center justify-center bg-zinc-100 dark:bg-zinc-800">
+                            <Icon name="ph:article" class="w-16 h-16 text-zinc-400 dark:text-zinc-600" />
+                        </div>
+                    )}
+                    <div class="flex flex-col gap-2 p-5 md:p-6">
+                        <h3 class="text-lg font-bold font-serif line-clamp-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                            {post.node.title}
+                        </h3>
+                        {post.node.subtitle && (
+                            <p class="text-sm text-zinc-600 dark:text-zinc-400 line-clamp-2">{post.node.subtitle}</p>
+                        )}
+                        <time class="text-xs text-zinc-500 mt-auto" datetime={post.node.publishedAt}>
+                            {formatDate(post.node.publishedAt)}
+                        </time>
+                    </div>
                 </a>
-            )}
-            {page.url.next && (
-                <a href={page.url.next} class="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors">
-                    Next →
-                </a>
-            )}
-        </div>
+            </BentoBox>
+        ))}
+
+        <!-- Pagination -->
+        {(page.url.prev || page.url.next) && (
+            <BentoBox variant="about" animationDelay={isFirstPage ? 900 : 400} class="row-span-1! bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm p-4 md:p-5 flex items-center justify-center">
+                <div class="flex justify-center items-center gap-4">
+                    {page.url.prev ? (
+                        <a
+                            href={page.url.prev}
+                            class="group flex items-center gap-2 px-6 py-3 bg-linear-to-r from-purple-500 to-pink-500 text-white rounded-full font-medium hover:from-purple-600 hover:to-pink-600 transition-all hover:shadow-lg hover:shadow-purple-500/25"
+                        >
+                            <Icon name="ph:arrow-left" class="w-5 h-5 transition-transform group-hover:-translate-x-1" />
+                            Previous
+                        </a>
+                    ) : (
+                        <span class="px-6 py-3 text-zinc-400 dark:text-zinc-600">← Previous</span>
+                    )}
+
+                    <span class="text-zinc-500 dark:text-zinc-400 font-medium">
+                        Page {page.currentPage} of {page.lastPage}
+                    </span>
+
+                    {page.url.next ? (
+                        <a
+                            href={page.url.next}
+                            class="group flex items-center gap-2 px-6 py-3 bg-linear-to-r from-purple-500 to-pink-500 text-white rounded-full font-medium hover:from-purple-600 hover:to-pink-600 transition-all hover:shadow-lg hover:shadow-purple-500/25"
+                        >
+                            Next
+                            <Icon name="ph:arrow-right" class="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                        </a>
+                    ) : (
+                        <span class="px-6 py-3 text-zinc-400 dark:text-zinc-600">Next →</span>
+                    )}
+                </div>
+            </BentoBox>
+        )}
     </div>
 </Layout>
