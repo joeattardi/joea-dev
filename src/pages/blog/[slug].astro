@@ -40,6 +40,9 @@ const publishedDate = new Date(post.publishedAt).toLocaleDateString('en-US', {
 ---
 
 <Layout title={post.title}>
+    <!-- Reading Progress Bar -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-linear-to-r from-purple-500 via-pink-500 to-orange-500 z-50 transition-[width] duration-100 ease-out" style="width: 0%"></div>
+
     <!-- Background Pattern & Decorative Elements -->
     <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
         <!-- Dot pattern -->
@@ -206,3 +209,17 @@ const publishedDate = new Date(post.publishedAt).toLocaleDateString('en-US', {
         animation: fade-in 0.5s ease-out forwards;
     }
 </style>
+
+<script>
+    const progressBar = document.getElementById('progress-bar');
+
+    function updateProgress() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        progressBar?.style.setProperty('width', `${Math.min(100, progress)}%`);
+    }
+
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+</script>
