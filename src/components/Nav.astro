@@ -4,10 +4,11 @@ import NavLink from './NavLink.astro';
 import { Icon } from 'astro-icon/components';
 ---
 
-<nav class:list={[
-    'hidden md:block',
+<nav id="mobile-nav" class:list={[
+    'md:block md:opacity-100 md:pointer-events-auto',
     'md:static md:w-auto md:h-auto md:z-auto',
     'fixed top-0 left-0 w-full h-full z-40 bg-zinc-100 flex items-center justify-center',
+    'opacity-0 pointer-events-none transition-opacity duration-300 ease-out',
     'dark:bg-zinc-700'
 ]}>
     <div class="fixed top-2 left-2 md:hidden"><a href="/"><Logo /></a></div>
@@ -25,6 +26,7 @@ import { Icon } from 'astro-icon/components';
 
 <script>
     const button = document.getElementById('hamburger');
+    const nav = document.getElementById('mobile-nav');
     const menuClosedIcon = document.getElementById('menu-closed');
     const menuOpenIcon = document.getElementById('menu-open');
 
@@ -32,11 +34,17 @@ import { Icon } from 'astro-icon/components';
 
     button?.addEventListener('click', () => {
         menuOpen = !menuOpen;
-        const nav = document.querySelector('nav');
 
         document.body.classList.toggle('fixed', menuOpen);
         document.body.classList.toggle('w-full', menuOpen);
-        nav?.classList.toggle('hidden', !menuOpen);
+
+        // Animate nav overlay
+        nav?.classList.toggle('opacity-0', !menuOpen);
+        nav?.classList.toggle('opacity-100', menuOpen);
+        nav?.classList.toggle('pointer-events-none', !menuOpen);
+        nav?.classList.toggle('pointer-events-auto', menuOpen);
+
+        // Toggle icons
         menuClosedIcon?.classList.toggle('hidden', menuOpen);
         menuOpenIcon?.classList.toggle('hidden', !menuOpen);
     });
