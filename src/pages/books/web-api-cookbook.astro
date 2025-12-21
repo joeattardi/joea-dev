@@ -71,7 +71,7 @@ const book = {
         <div class="flex flex-col md:flex-row gap-8 p-8 md:p-12">
             <!-- Book Cover -->
             <div class="shrink-0 mx-auto md:mx-0">
-                <div class={`relative w-64 h-80 md:w-80 md:h-[400px] rounded-xl overflow-hidden shadow-2xl`}>
+                <div class={`relative w-64 h-80 md:w-80 md:h-[400px] rounded-xl overflow-hidden shadow-2xl transition-transform duration-300 ease-out hover:scale-[1.02] hover:shadow-3xl opacity-0 animate-cover-entrance border border-black/10 dark:border-white/10`}>
                     <div class={`absolute inset-0 bg-linear-to-br ${book.color.bg}`}></div>
                     <Image
                         src={coverImage}
@@ -177,5 +177,20 @@ const book = {
 
     .animate-fade-in {
         animation: fade-in 0.5s ease-out forwards;
+    }
+
+    @keyframes cover-entrance {
+        from {
+            opacity: 0;
+            transform: scale(0.95) translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+    }
+
+    .animate-cover-entrance {
+        animation: cover-entrance 0.6s ease-out 0.1s forwards;
     }
 </style>
