@@ -1,0 +1,181 @@
+---
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+import Layout from '../../layouts/Layout.astro';
+import coverImage from '../../assets/books/web-api-cookbook.jpg';
+
+const book = {
+    title: 'Web API Cookbook',
+    subtitle: 'Level Up Your JavaScript Applications',
+    publisher: "O'Reilly",
+    year: 2024,
+    description: 'Practical recipes for working with modern browser APIs to build powerful web applications. This cookbook provides solutions for real-world problems using the latest web platform features, from the Fetch API and Web Storage to Web Components, Intersection Observer, and beyond.',
+    links: {
+        amazon: 'https://www.amazon.com/dp/1098150694',
+        publisher: 'https://www.oreilly.com/library/view/web-api-cookbook/9781098150686/',
+        website: 'https://webapis.info'
+    },
+    tableOfContents: [
+        { title: 'Asynchronous APIs', description: 'Explore fundamental asynchronous JavaScript concepts, including callback functions and Promises.' },
+        { title: 'Simple Persistence with the Web Storage API', description: 'Store and retrieve data using persistent storage.' },
+        { title: 'URLs and Routing', description: 'Work with the URL and History APIs.' },
+        { title: 'Network Requests', description: 'Communicate with remote servers and APIs.' },
+        { title: 'IndexedDB', description: 'Learn how to use IndexedDB to store and retrieve large amounts of structured data.' },
+        { title: 'Observing the DOM', description: 'Explore how to observe changes in the DOM using MutationObserver, IntersectionObserver, and ResizeObserver.' },
+        { title: 'Forms', description: 'Discover how to handle form submissions and input validation using the FormData and Constraint Validation API.' },
+        { title: 'The Web Animations API', description: 'Learn how to create and control animations using the Web Animations API.' },
+        { title: 'The Web Speech API', description: 'Discover how to add speech recognition and synthesis capabilities to web applications.' },
+        { title: 'Working With Files', description: 'Learn how to handle file uploads and downloads using the File API.' },
+        { title: 'Internationalization', description: 'Explore how to create internationalized web applications that can be easily localized.' },
+        { title: 'Web Components', description: 'Discover how to create reusable custom elements using the Web Components API.' },
+        { title: 'UI Elements', description: 'Use dialogs and other interactive elements.' },
+        { title: 'Device Integration', description: 'Interact with sensors and services on your device.' },
+        { title: 'Measuring Performance', description: 'Capture performance metrics.' },
+        { title: 'Working With the Console', description: 'Learn about different ways to present information using the Console API.' },
+        { title: 'CSS', description: 'Explore CSS related APIs.' },
+        { title: 'Media', description: 'Work with images and video.' }
+    ],
+    color: {
+        accent: 'from-blue-500 to-cyan-500',
+        bg: 'from-blue-500/10 to-cyan-500/10',
+        icon: 'text-blue-500',
+        button: 'bg-blue-600 hover:bg-blue-700'
+    }
+};
+---
+
+<Layout title={book.title}>
+    <!-- Background Pattern & Decorative Elements -->
+    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <!-- Dot pattern -->
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.07)_1px,transparent_0)] dark:bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.05)_1px,transparent_0)] bg-size-[24px_24px]"></div>
+
+        <!-- Floating gradient blobs -->
+        <div class="absolute top-20 -left-32 w-96 h-96 bg-linear-to-br from-blue-400/20 to-cyan-500/20 dark:from-blue-500/10 dark:to-cyan-600/10 rounded-full blur-3xl animate-[float_12s_ease-in-out_infinite]"></div>
+        <div class="absolute top-1/2 -right-32 w-80 h-80 bg-linear-to-br from-cyan-400/20 to-blue-400/20 dark:from-cyan-500/10 dark:to-blue-500/10 rounded-full blur-3xl animate-[float-delayed_15s_ease-in-out_infinite]"></div>
+    </div>
+
+    <!-- Back Link -->
+    <div class="mb-8">
+        <a href="/books" class="inline-flex items-center gap-2 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+            <Icon name="ph:arrow-left" class="w-4 h-4" />
+            Back to Books
+        </a>
+    </div>
+
+    <!-- Book Header -->
+    <div class="rounded-2xl border border-black/10 dark:border-white/10 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm overflow-hidden mb-8 opacity-0 animate-fade-in">
+        <!-- Gradient accent bar -->
+        <div class={`h-1.5 bg-linear-to-r ${book.color.accent}`}></div>
+
+        <div class="flex flex-col md:flex-row gap-8 p-8 md:p-12">
+            <!-- Book Cover -->
+            <div class="shrink-0 mx-auto md:mx-0">
+                <div class={`relative w-64 h-80 md:w-80 md:h-[400px] rounded-xl overflow-hidden shadow-2xl`}>
+                    <div class={`absolute inset-0 bg-linear-to-br ${book.color.bg}`}></div>
+                    <Image
+                        src={coverImage}
+                        alt={`${book.title} book cover`}
+                        class="relative w-full h-full object-cover"
+                    />
+                </div>
+            </div>
+
+            <!-- Book Details -->
+            <div class="flex flex-col text-center md:text-left">
+                <!-- Publisher & Year -->
+                <div class="flex items-center justify-center md:justify-start gap-2 mb-4">
+                    <Icon name="ph:book-open" class={`w-5 h-5 ${book.color.icon}`} />
+                    <span class="text-base font-medium text-zinc-600 dark:text-zinc-400">
+                        {book.publisher} &bull; {book.year}
+                    </span>
+                </div>
+
+                <!-- Title -->
+                <h1 class="text-4xl md:text-5xl font-bold font-serif mb-3">
+                    {book.title}
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-xl text-zinc-600 dark:text-zinc-400 mb-6">
+                    {book.subtitle}
+                </p>
+
+                <!-- Description -->
+                <p class="text-base text-zinc-600 dark:text-zinc-400 mb-8 max-w-2xl">
+                    {book.description}
+                </p>
+
+                <!-- Buy Links -->
+                <div class="flex flex-wrap items-center justify-center md:justify-start gap-4">
+                    <a
+                        href={book.links.amazon}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class={`inline-flex items-center gap-2 px-6 py-3 rounded-lg text-white font-medium transition-colors ${book.color.button}`}
+                    >
+                        <Icon name="simple-icons:amazon" class="w-5 h-5" />
+                        Buy on Amazon
+                    </a>
+                    <a
+                        href={book.links.publisher}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 font-medium hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+                    >
+                        <Icon name="ph:storefront" class="w-5 h-5" />
+                        O'Reilly
+                    </a>
+                    <a
+                        href={book.links.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 font-medium hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+                    >
+                        <Icon name="ph:globe" class="w-5 h-5" />
+                        Book Website
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Table of Contents -->
+    <div class="rounded-2xl border border-black/10 dark:border-white/10 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm overflow-hidden opacity-0 animate-fade-in" style="animation-delay: 100ms;">
+        <div class="p-8 md:p-12">
+            <h2 class="text-2xl md:text-3xl font-bold font-serif mb-6">Table of Contents</h2>
+            <ol class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {book.tableOfContents.map((chapter, index) => (
+                    <li class="flex items-start gap-4 p-4 rounded-lg bg-zinc-100/50 dark:bg-zinc-800/50">
+                        <span class={`shrink-0 w-8 h-8 rounded-full bg-linear-to-br ${book.color.accent} text-white text-sm font-bold flex items-center justify-center mt-0.5`}>
+                            {index + 1}
+                        </span>
+                        <div class="flex flex-col gap-1">
+                            <span class="text-zinc-700 dark:text-zinc-300 font-medium">
+                                {chapter.title}
+                            </span>
+                            <span class="text-sm text-zinc-500 dark:text-zinc-400">
+                                {chapter.description}
+                            </span>
+                        </div>
+                    </li>
+                ))}
+            </ol>
+        </div>
+    </div>
+</Layout>
+
+<style>
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    .animate-fade-in {
+        animation: fade-in 0.5s ease-out forwards;
+    }
+</style>

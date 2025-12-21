@@ -1,0 +1,176 @@
+---
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+import Layout from '../../layouts/Layout.astro';
+import coverImage from '../../assets/books/modern-css.jpg';
+
+const book = {
+    title: 'Modern CSS',
+    subtitle: 'Master the Key Concepts of CSS for Modern Web Development',
+    publisher: 'Apress',
+    year: 2025,
+    description: 'Master the latest CSS features and techniques to build beautiful, responsive, and maintainable web designs. This comprehensive guide covers everything from modern layout systems like Grid and Flexbox to cutting-edge features like container queries, cascade layers, and the :has() selector.',
+    links: {
+        amazon: 'https://www.amazon.com/Modern-CSS-Master-Concepts-Development/dp/B0FD2FQV3D',
+        publisher: 'https://link.springer.com/book/10.1007/979-8-8688-1727-4',
+        website: 'https://moderncss.cc'
+    },
+    tableOfContents: [
+        { title: 'Introduction to CSS', description: 'Get started with CSS fundamentals and understand its role in modern web development.' },
+        { title: 'CSS Rules and Selectors', description: 'Master the art of targeting elements with powerful and efficient selectors.' },
+        { title: 'Basic CSS Concepts', description: 'Learn about the box model, specificity, and inheritance.' },
+        { title: 'Basic Styling', description: 'Explore colors, units, and basic styling properties.' },
+        { title: 'Backgrounds and Gradients', description: 'Create stunning backgrounds using gradients, patterns, and images.' },
+        { title: 'Text Styling', description: 'Learn typography, text effects, and advanced text styling techniques.' },
+        { title: 'Layout and Positioning', description: 'Master the art of positioning elements and creating complex layouts.' },
+        { title: 'Transforms', description: 'Transform elements in 2D and 3D space with CSS transforms.' },
+        { title: 'Transitions and Animations', description: 'Bring your designs to life with smooth transitions and animations.' },
+        { title: 'Flexbox', description: 'Create flexible and responsive layouts with CSS Flexbox.' },
+        { title: 'CSS Grid', description: 'Master the powerful CSS Grid layout system. Updated to cover subgrid.' },
+        { title: 'Responsive Design', description: 'Learn how to make your designs work across all devices.' },
+        { title: 'Wrap Up', description: 'Catch up on some other new CSS features.' }
+    ],
+    color: {
+        accent: 'from-purple-500 to-pink-500',
+        bg: 'from-purple-500/10 to-pink-500/10',
+        icon: 'text-purple-500',
+        button: 'bg-purple-600 hover:bg-purple-700'
+    }
+};
+---
+
+<Layout title={book.title}>
+    <!-- Background Pattern & Decorative Elements -->
+    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <!-- Dot pattern -->
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.07)_1px,transparent_0)] dark:bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.05)_1px,transparent_0)] bg-size-[24px_24px]"></div>
+
+        <!-- Floating gradient blobs -->
+        <div class="absolute top-20 -left-32 w-96 h-96 bg-linear-to-br from-purple-400/20 to-pink-500/20 dark:from-purple-500/10 dark:to-pink-600/10 rounded-full blur-3xl animate-[float_12s_ease-in-out_infinite]"></div>
+        <div class="absolute top-1/2 -right-32 w-80 h-80 bg-linear-to-br from-pink-400/20 to-purple-400/20 dark:from-pink-500/10 dark:to-purple-500/10 rounded-full blur-3xl animate-[float-delayed_15s_ease-in-out_infinite]"></div>
+    </div>
+
+    <!-- Back Link -->
+    <div class="mb-8">
+        <a href="/books" class="inline-flex items-center gap-2 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
+            <Icon name="ph:arrow-left" class="w-4 h-4" />
+            Back to Books
+        </a>
+    </div>
+
+    <!-- Book Header -->
+    <div class="rounded-2xl border border-black/10 dark:border-white/10 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm overflow-hidden mb-8 opacity-0 animate-fade-in">
+        <!-- Gradient accent bar -->
+        <div class={`h-1.5 bg-linear-to-r ${book.color.accent}`}></div>
+
+        <div class="flex flex-col md:flex-row gap-8 p-8 md:p-12">
+            <!-- Book Cover -->
+            <div class="shrink-0 mx-auto md:mx-0">
+                <div class={`relative w-64 h-80 md:w-80 md:h-[400px] rounded-xl overflow-hidden shadow-2xl`}>
+                    <div class={`absolute inset-0 bg-linear-to-br ${book.color.bg}`}></div>
+                    <Image
+                        src={coverImage}
+                        alt={`${book.title} book cover`}
+                        class="relative w-full h-full object-cover"
+                    />
+                </div>
+            </div>
+
+            <!-- Book Details -->
+            <div class="flex flex-col text-center md:text-left">
+                <!-- Publisher & Year -->
+                <div class="flex items-center justify-center md:justify-start gap-2 mb-4">
+                    <Icon name="ph:book-open" class={`w-5 h-5 ${book.color.icon}`} />
+                    <span class="text-base font-medium text-zinc-600 dark:text-zinc-400">
+                        {book.publisher} &bull; {book.year}
+                    </span>
+                </div>
+
+                <!-- Title -->
+                <h1 class="text-4xl md:text-5xl font-bold font-serif mb-3">
+                    {book.title}
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-xl text-zinc-600 dark:text-zinc-400 mb-6">
+                    {book.subtitle}
+                </p>
+
+                <!-- Description -->
+                <p class="text-base text-zinc-600 dark:text-zinc-400 mb-8 max-w-2xl">
+                    {book.description}
+                </p>
+
+                <!-- Buy Links -->
+                <div class="flex flex-wrap items-center justify-center md:justify-start gap-4">
+                    <a
+                        href={book.links.amazon}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class={`inline-flex items-center gap-2 px-6 py-3 rounded-lg text-white font-medium transition-colors ${book.color.button}`}
+                    >
+                        <Icon name="simple-icons:amazon" class="w-5 h-5" />
+                        Buy on Amazon
+                    </a>
+                    <a
+                        href={book.links.publisher}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 font-medium hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+                    >
+                        <Icon name="ph:storefront" class="w-5 h-5" />
+                        Apress
+                    </a>
+                    <a
+                        href={book.links.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 font-medium hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+                    >
+                        <Icon name="ph:globe" class="w-5 h-5" />
+                        Book Website
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Table of Contents -->
+    <div class="rounded-2xl border border-black/10 dark:border-white/10 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm overflow-hidden opacity-0 animate-fade-in" style="animation-delay: 100ms;">
+        <div class="p-8 md:p-12">
+            <h2 class="text-2xl md:text-3xl font-bold font-serif mb-6">Table of Contents</h2>
+            <ol class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {book.tableOfContents.map((chapter, index) => (
+                    <li class="flex items-start gap-4 p-4 rounded-lg bg-zinc-100/50 dark:bg-zinc-800/50">
+                        <span class={`shrink-0 w-8 h-8 rounded-full bg-linear-to-br ${book.color.accent} text-white text-sm font-bold flex items-center justify-center mt-0.5`}>
+                            {index + 1}
+                        </span>
+                        <div class="flex flex-col gap-1">
+                            <span class="text-zinc-700 dark:text-zinc-300 font-medium">
+                                {chapter.title}
+                            </span>
+                            <span class="text-sm text-zinc-500 dark:text-zinc-400">
+                                {chapter.description}
+                            </span>
+                        </div>
+                    </li>
+                ))}
+            </ol>
+        </div>
+    </div>
+</Layout>
+
+<style>
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    .animate-fade-in {
+        animation: fade-in 0.5s ease-out forwards;
+    }
+</style>
