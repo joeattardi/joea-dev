@@ -1,0 +1,101 @@
+[
+    {
+        "title": "How and when to use JavaScript arrow functions",
+        "description": "Arrow functions have a simpler syntax than standard functions, and there are some important differences in how they behave.",
+        "url": "https://blog.logrocket.com/javascript-arrow-functions",
+        "publication": "LogRocket",
+        "publishedDate": "2025-02-17",
+        "tags": ["JavaScript"],
+        "featured": false
+    },
+    {
+        "title": "Working with URLs in JavaScript",
+        "publishedDate": "2024-12-19",
+        "publication": "LogRocket",
+        "url": "https://blog.logrocket.com/working-urls-javascript/",
+        "description": "Break down the parts of a URL and explore APIs for working with them in JavaScript, parsing them, building query strings, checking their validity, etc.",
+        "featured": false,
+        "tags": ["JavaScript"]
+    },
+    {
+        "title": "How to Build Your First Web Component",
+        "publishedDate": "2023-10-19",
+        "publication": "freeCodeCamp",
+        "url": "https://www.freecodecamp.org/news/build-your-first-web-component/",
+        "description": "In 2023, browser support for web components (also known as custom elements) is really good. There's never been a better time to start building your own custom elements.",
+        "featured": false,
+        "tags": ["Web Components", "JavaScript"]
+    },
+    {
+        "title": "How to Center Text Vertically with CSS",
+        "publishedDate": "2023-10-23",
+        "publication": "freeCodeCamp",
+        "url": "https://www.freecodecamp.org/news/how-to-center-text-vertically-with-css/",
+        "description": "In this article, you'll learn a couple of ways to vertically center your text inside a div or other element.",
+        "featured": false,
+        "tags": ["CSS"]
+    },
+    {
+        "title": "Patterns for efficient DOM manipulation with vanilla JavaScript",
+        "publishedDate": "2024-10-02",
+        "publication": "LogRocket",
+        "url": "https://blog.logrocket.com/patterns-efficient-dom-manipulation-vanilla-javascript/",
+        "description": "Explore DOM manipulation patterns in JavaScript, such as choosing the right querySelector, caching elements, improving event handling, and more.",
+        "featured": false,
+        "tags": ["JavaScript"]
+    },
+    {
+        "title": "How JavaScript Promises Work - Handbook for Beginners",
+        "publishedDate": "2024-02-13",
+        "publication": "freeCodeCamp",
+        "url": "https://www.freecodecamp.org/news/the-javascript-promises-handbook/",
+        "description": "Many operations, such as network requests, are asynchronous in nature. One of the most useful and powerful tools for working with asynchronous code is the Promise. In this handbook, you'll learn all about JavaScript Promises and how to use them.",
+        "featured": true,
+        "tags": ["JavaScript"]
+    },
+    {
+        "title": "Using the ScrollTimeline API for scroll-linked animations",
+        "publishedDate": "2023-12-27",
+        "publication": "LogRocket",
+        "url": "https://blog.logrocket.com/scrolltimeline-api-scroll-linked-animations/",
+        "description": "CSS scrollTimeline introduces a new way to add scroll-linked animations to your webpage. Use and compare it to the Web Animations API here.",
+        "featured": false,
+        "tags": ["CSS", "JavaScript"]
+    },
+    {
+        "title": "Top 5 Web APIs for performance-based analysis (and how to use them)",
+        "publishedDate": "2022-12-23",
+        "publication": "LogRocket",
+        "url": "https://blog.logrocket.com/top-5-web-apis-performance-based-analysis/",
+        "description": "Learn about five web performance APIs, which have full browser support and offer many ways for you to measure your apps' performance.",
+        "featured": false,
+        "tags": ["JavaScript"]
+    },
+    {
+        "title": "Understanding TypeScript's benefits and pitfalls",
+        "publishedDate": "2022-10-04",
+        "publication": "LogRocket",
+        "url": "https://blog.logrocket.com/understanding-typescripts-benefits-pitfalls/",
+        "description": "If you haven't taken up TypeScript yet, now's the time! Start here by learning how TypeScript can benefit your project, and what to be wary of.",
+        "featured": false,
+        "tags": ["TypeScript"]
+    },
+    {
+        "title": "12 essential ESLint rules for React",
+        "publishedDate": "2022-08-16",
+        "publication": "LogRocket",
+        "url": "https://blog.logrocket.com/12-essential-eslint-rules-react/",
+        "description": "There are many ESLint rules for React out there — learn which ones are most useful in this post, which covers the twelve most essential ones.",
+        "featured": false,
+        "tags": ["JavaScript", "React"]
+    },
+    {
+        "title": "When and how to choose HTML for form validation",
+        "publishedDate": "2022-05-30",
+        "publication": "LogRocket",
+        "url": "https://blog.logrocket.com/when-how-to-choose-html-form-validation",
+        "description": "Client-side form validation such as HTML5 gives users near-immediate feedback about whether or not their input data is valid.",
+        "featured": false,
+        "tags": ["HTML", "JavaScript"]
+    }
+]
