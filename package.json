@@ -10,6 +10,7 @@
         "format": "prettier --write ."
     },
     "dependencies": {
+        "@astrojs/rss": "^4.0.14",
         "@fontsource-variable/merriweather": "^5.2.6",
         "@fontsource-variable/roboto": "^5.2.8",
         "@iconify-json/fa7-brands": "^1.2.0",
