@@ -94,15 +94,17 @@
         }
 
         .logo h1 {
+            color: white;
+        }
+
+        .logo:hover h1 {
             background: linear-gradient(
                 90deg,
                 var(--color-blue-300),
                 var(--color-violet-300)
             );
-            color: white;
-        }
-
-        .logo:hover h1 {
+            -webkit-background-clip: text;
+            background-clip: text;
             color: transparent;
         }
     }
