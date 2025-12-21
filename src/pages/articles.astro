@@ -1,7 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
 import Layout from '../layouts/Layout.astro';
-import BentoBox from '../components/BentoBox.astro';
+import PageTitle from '../components/PageTitle.astro';
 import articlesData from '../data/articles.json';
 
 // Sort articles: featured first, then by date
@@ -44,14 +44,10 @@ const colorThemes = [
 
     <!-- Page Header -->
     <div class="mb-8 md:mb-12">
-        <BentoBox variant="cta" animationDelay={0} class="col-span-2! md:col-span-6! bg-linear-to-br from-purple-500 via-pink-500 to-orange-500 dark:from-purple-600 dark:via-pink-600 dark:to-orange-600 bg-size-[200%_200%] animate-[gradient-shift_8s_ease-in-out_infinite] text-white p-8 md:p-12">
-            <div class="flex items-center gap-4 mb-4">
-                <h1 class="text-3xl md:text-5xl font-bold font-serif">Articles</h1>
-            </div>
-            <p class="text-lg md:text-xl opacity-90 max-w-2xl">
-                A collection of articles I've written for various publications across the web.
-            </p>
-        </BentoBox>
+        <PageTitle
+            title="Articles"
+            description="A collection of articles I've written for various publications across the web."
+        />
     </div>
 
     <!-- Articles Grid -->

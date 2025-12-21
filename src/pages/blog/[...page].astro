@@ -3,6 +3,7 @@ import type { Page, GetStaticPaths } from 'astro';
 import { Icon } from 'astro-icon/components';
 import Layout from '../../layouts/Layout.astro';
 import BentoBox from '../../components/BentoBox.astro';
+import PageTitle from '../../components/PageTitle.astro';
 import { getAllPosts } from '../../lib/client';
 import type { AllPostsData } from '../../lib/schema';
 
@@ -50,14 +51,12 @@ const formatDate = (dateString: string) => {
 
     <div class="relative grid grid-cols-2 md:grid-cols-6 auto-rows-[minmax(80px,auto)] md:auto-rows-[minmax(100px,auto)] gap-3 md:gap-4 w-full">
         <!-- Blog Header -->
-        <BentoBox variant="about" animationDelay={0} class="bg-linear-to-br from-purple-500 via-pink-500 to-orange-500 dark:from-purple-600 dark:via-pink-600 dark:to-orange-600 bg-size-[200%_200%] animate-[gradient-shift_8s_ease-in-out_infinite] text-white">
-            <a href="/blog" class="block p-8 md:p-12 hover:opacity-90 transition-opacity">
-                <h1 class="text-4xl md:text-5xl font-bold font-serif mb-4">Blog</h1>
-                <p class="text-lg opacity-90 max-w-2xl">
-                    Thoughts, tutorials, and insights about web development, JavaScript, and the modern web platform.
-                </p>
-            </a>
-        </BentoBox>
+        <PageTitle
+            title="Blog"
+            description="Thoughts, tutorials, and insights about web development, JavaScript, and the modern web platform."
+            href="/blog"
+            class="col-span-2 row-span-2 md:col-span-6"
+        />
 
         {isFirstPage && (
             <>
