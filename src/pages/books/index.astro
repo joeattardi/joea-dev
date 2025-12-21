@@ -28,6 +28,7 @@ const books = [
         publisher: "O'Reilly",
         year: 2024,
         coverImage: webApiCookbookCover,
+        coverScale: 'scale-[1.03]',
         description: 'Practical recipes for working with modern browser APIs to build powerful web applications.',
         color: {
             bg: 'from-blue-500/10 to-cyan-500/10',
@@ -77,12 +78,12 @@ const books = [
                     <div class="flex flex-col md:flex-row gap-8 p-8 pt-10 md:p-10 md:pt-12">
                         {/* Book Cover */}
                         <div class="shrink-0 mx-auto md:mx-0">
-                            <div class="relative w-48 h-64 md:w-56 md:h-72 rounded-xl overflow-hidden shadow-xl group-hover:shadow-2xl transition-shadow">
+                            <div class="relative w-48 h-64 md:w-56 md:h-72 rounded-xl overflow-hidden shadow-xl group-hover:shadow-2xl transition-shadow border border-black/10 dark:border-white/10">
                                 <div class={`absolute inset-0 bg-linear-to-br ${book.color.bg}`}></div>
                                 <Image
                                     src={book.coverImage}
                                     alt={`${book.title} book cover`}
-                                    class="relative w-full h-full object-cover"
+                                    class={`relative w-full h-full object-cover ${book.coverScale || ''}`}
                                 />
                             </div>
                         </div>
