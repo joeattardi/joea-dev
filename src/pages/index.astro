@@ -72,16 +72,19 @@ const publishedDate = latestPost ? new Date(latestPost.publishedAt).toLocaleDate
         </BentoBox>
 
         <!-- Location Box -->
-        <BentoBox variant="cta" animationDelay={250} class="col-span-2! md:col-span-2! row-span-1! bg-linear-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/50 dark:to-teal-950/50 backdrop-blur-sm p-6 flex items-center gap-4 overflow-hidden relative">
+        <BentoBox variant="cta" animationDelay={250} class="col-span-2! md:col-span-2! row-span-1! bg-linear-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/50 dark:to-teal-950/50 backdrop-blur-sm p-6 flex flex-col overflow-hidden relative">
             <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-emerald-200/30 dark:bg-emerald-700/20 rounded-full blur-2xl"></div>
-            <div class="shrink-0 w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/50 flex items-center justify-center">
-                <Icon name="ph:map-pin-fill" class="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+            <div class="flex items-center gap-4">
+                <div class="shrink-0 w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/50 flex items-center justify-center">
+                    <Icon name="ph:map-pin-fill" class="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                </div>
+                <div class="relative">
+                    <p class="text-sm text-emerald-600 dark:text-emerald-400 font-medium mb-1">Based in</p>
+                    <p class="text-xl font-bold text-zinc-800 dark:text-zinc-100">Boston, MA</p>
+                    <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1" id="local-time"></p>
+                </div>
             </div>
-            <div class="relative">
-                <p class="text-sm text-emerald-600 dark:text-emerald-400 font-medium mb-1">Based in</p>
-                <p class="text-xl font-bold text-zinc-800 dark:text-zinc-100">Boston, MA</p>
-                <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1" id="local-time"></p>
-            </div>
+            <img src="/boston-skyline.svg" alt="Boston skyline" class="absolute -bottom-4 right-0 md:right-auto md:left-1/2 md:-translate-x-1/2 h-24 opacity-30" />
         </BentoBox>
 
         <!-- Tech Stack Container -->
