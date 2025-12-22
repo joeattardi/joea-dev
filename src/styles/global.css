@@ -37,6 +37,8 @@ html {
     --color-link-hover: var(--color-blue-600);
     --color-link-dark: var(--color-blue-400);
     --color-link-hover-dark: var(--color-blue-200);
+
+    --breakpoint-xs: 26rem;
 }
 
 code::before {
