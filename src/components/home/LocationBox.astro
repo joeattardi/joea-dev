@@ -10,15 +10,12 @@ import BentoBox from '../BentoBox.astro';
         <!-- Ambient glow -->
         <div id="sky-glow" class="absolute -right-8 -bottom-8 w-32 h-32 rounded-full blur-2xl bg-sky-200/50 transition-all duration-1000"></div>
 
-        <div class="relative z-10 flex items-center gap-4">
-            <div class="shrink-0 w-12 h-12 rounded-full bg-white/30 backdrop-blur-sm flex items-center justify-center shadow-lg">
-                <Icon name="ph:map-pin-fill" class="w-6 h-6 text-white drop-shadow-md" />
-            </div>
+        <div class="relative z-10">
             <p class="text-2xl font-bold text-white drop-shadow-lg">Boston, MA</p>
         </div>
 
         <!-- Sun/Moon icon -->
-        <div id="celestial-body" class="absolute top-2 right-2 transition-all duration-1000">
+        <div id="celestial-body" class="absolute top-6 right-6 transition-all duration-1000">
             <Icon name="ph:sun-fill" id="sun-icon" class="w-8 h-8 text-yellow-300 drop-shadow-[0_0_8px_rgba(253,224,71,0.6)] hidden" />
             <Icon name="ph:moon-fill" id="moon-icon" class="w-8 h-8 text-slate-200 drop-shadow-[0_0_8px_rgba(226,232,240,0.6)] hidden" />
         </div>
