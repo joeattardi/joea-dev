@@ -1,5 +1,4 @@
 ---
-import Logo from './Logo.astro';
 import NavLink from './NavLink.astro';
 import { Icon } from 'astro-icon/components';
 ---
@@ -7,17 +6,25 @@ import { Icon } from 'astro-icon/components';
 <nav id="mobile-nav" class:list={[
     'md:block md:opacity-100 md:pointer-events-auto',
     'md:static md:w-auto md:h-auto md:z-auto',
-    'fixed top-0 left-0 w-full h-full z-40 bg-zinc-100 flex items-center justify-center',
+    'fixed top-0 left-0 w-full h-full z-40 flex items-center justify-center overflow-hidden',
     'opacity-0 pointer-events-none transition-opacity duration-300 ease-out',
-    'dark:bg-zinc-700'
+    'bg-linear-to-br from-zinc-50 via-zinc-100 to-zinc-200 md:bg-none md:from-transparent md:via-transparent md:to-transparent',
+    'dark:from-zinc-800 dark:via-zinc-700 dark:to-zinc-800 dark:md:from-transparent dark:md:via-transparent dark:md:to-transparent'
 ]}>
-    <div class="fixed top-2 left-2 md:hidden"><a href="/"><Logo /></a></div>
-    <ul class="flex flex-col gap-8 md:flex-row items-center md:gap-2">
-        <NavLink href="/blog">Blog</NavLink>
-        <NavLink href="/articles">Articles</NavLink>
-        <NavLink href="/projects">Projects</NavLink>
-        <NavLink href="/books">Books</NavLink>
-        <NavLink href="/uses">Uses</NavLink>
+    <!-- Decorative background elements (mobile only) -->
+    <div class="absolute inset-0 md:hidden overflow-hidden">
+        <div class="absolute top-20 -left-20 w-64 h-64 rounded-full bg-linear-to-br from-blue-400/20 to-purple-500/20 blur-3xl"></div>
+        <div class="absolute bottom-32 -right-20 w-72 h-72 rounded-full bg-linear-to-br from-pink-400/20 to-orange-400/20 blur-3xl"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-linear-to-br from-purple-400/10 to-blue-400/10 blur-3xl"></div>
+    </div>
+
+    <!-- Navigation links -->
+    <ul class="relative z-10 flex flex-col gap-6 md:flex-row items-center md:gap-2">
+        <NavLink href="/blog"><span class="mobile-nav-item" style="--delay: 0">Blog</span></NavLink>
+        <NavLink href="/articles"><span class="mobile-nav-item" style="--delay: 1">Articles</span></NavLink>
+        <NavLink href="/projects"><span class="mobile-nav-item" style="--delay: 2">Projects</span></NavLink>
+        <NavLink href="/books"><span class="mobile-nav-item" style="--delay: 3">Books</span></NavLink>
+        <NavLink href="/uses"><span class="mobile-nav-item" style="--delay: 4">Uses</span></NavLink>
     </ul>
 </nav>
 
@@ -25,6 +32,24 @@ import { Icon } from 'astro-icon/components';
     <Icon id="menu-closed" name="ph:list-bold" class="w-8 h-8" />
     <Icon id="menu-open"name="ph:x-bold" class="w-8 h-8 hidden" />
 </button>
+
+<style>
+    /* Staggered animation for mobile nav items */
+    @media (max-width: 767px) {
+        .mobile-nav-item {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+            transition-delay: calc(var(--delay) * 0.08s);
+        }
+
+        #mobile-nav.menu-open .mobile-nav-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
 
 <script>
     const button = document.getElementById('hamburger');
@@ -45,6 +70,7 @@ import { Icon } from 'astro-icon/components';
         nav?.classList.toggle('opacity-100', menuOpen);
         nav?.classList.toggle('pointer-events-none', !menuOpen);
         nav?.classList.toggle('pointer-events-auto', menuOpen);
+        nav?.classList.toggle('menu-open', menuOpen);
 
         // Toggle icons
         menuClosedIcon?.classList.toggle('hidden', menuOpen);
