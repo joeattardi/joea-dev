@@ -6,78 +6,20 @@ import BentoBox from '../BentoBox.astro';
 <BentoBox variant="cta" animationDelay={250} class="group col-span-2! md:col-span-2! row-span-1! overflow-hidden relative">
     <div id="location-box" class="absolute inset-0 p-6 flex flex-col justify-center md:justify-start">
         <!-- Dynamic sky gradient background -->
-        <div id="sky-gradient" class="absolute inset-0 bg-linear-to-b from-sky-400 to-sky-300 transition-all duration-1000"></div>
+        <div class="absolute inset-0 bg-linear-to-b from-sky-400 to-sky-300 dark:from-indigo-950 dark:via-indigo-900 dark:to-indigo-800 transition-all duration-1000"></div>
         <!-- Ambient glow -->
-        <div id="sky-glow" class="absolute -right-8 -bottom-8 w-32 h-32 rounded-full blur-2xl bg-sky-200/50 transition-all duration-1000"></div>
+        <div class="absolute -right-8 -bottom-8 w-32 h-32 rounded-full blur-2xl bg-sky-200/50 dark:bg-indigo-500/30 transition-all duration-1000"></div>
 
         <!-- Sun/Moon icon -->
-        <div id="celestial-body" class="absolute top-2 left-6 md:top-6 transition-all duration-1000">
-            <Icon name="ph:sun-fill" id="sun-icon" class="w-16 h-16 text-yellow-300 drop-shadow-[0_0_12px_rgba(253,224,71,0.6)] hidden" />
-            <Icon name="ph:moon-fill" id="moon-icon" class="w-16 h-16 text-slate-200 drop-shadow-[0_0_12px_rgba(226,232,240,0.6)] hidden" />
+        <div class="absolute top-2 left-6 md:top-6 transition-all duration-1000">
+            <Icon name="ph:sun-fill" class="w-16 h-16 text-yellow-300 drop-shadow-[0_0_12px_rgba(253,224,71,0.6)] dark:hidden" />
+            <Icon name="ph:moon-fill" class="w-16 h-16 text-slate-200 drop-shadow-[0_0_12px_rgba(226,232,240,0.6)] hidden dark:block" />
         </div>
 
-        <img src="/boston-skyline.svg" alt="Boston skyline" class="absolute -bottom-8 sm:-bottom-4 right-0 md:right-auto md:left-1/2 md:-translate-x-1/2 h-24 opacity-50 z-0" id="skyline" />
+        <img src="/boston-skyline.svg" alt="Boston skyline" class="absolute -bottom-8 sm:-bottom-4 right-0 md:right-auto md:left-1/2 md:-translate-x-1/2 h-24 opacity-50 dark:opacity-30 z-0" />
 
         <p class="absolute inset-0 flex items-center justify-center text-lg font-medium text-white/90 bg-black/30 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">Born and raised in the Boston area.</p>
     </div>
 </BentoBox>
 
-<script>
-    function updateLocationBox() {
-        const skyGradient = document.getElementById('sky-gradient');
-        const skyGlow = document.getElementById('sky-glow');
-        const sunIcon = document.getElementById('sun-icon');
-        const moonIcon = document.getElementById('moon-icon');
-        const skyline = document.getElementById('skyline');
-
-        if (!skyGradient || !sunIcon || !moonIcon) return;
-
-        const now = new Date();
-
-        // Get the hour in Boston (Eastern Time)
-        const bostonHour = parseInt(now.toLocaleTimeString('en-US', {
-            timeZone: 'America/New_York',
-            hour: 'numeric',
-            hour12: false
-        }));
-
-        // Determine time of day and set appropriate styles
-        // Dawn: 5-7, Day: 7-17, Dusk: 17-20, Night: 20-5
-        let showSun = false;
-
-        if (bostonHour >= 5 && bostonHour < 7) {
-            // Dawn - warm oranges and pinks
-            skyGradient.style.background = 'linear-gradient(to bottom, #fda4af, #fb923c, #fcd34d)';
-            if (skyGlow) skyGlow.style.background = 'rgba(251, 146, 60, 0.4)';
-            showSun = true;
-        } else if (bostonHour >= 7 && bostonHour < 17) {
-            // Day - bright blue sky
-            skyGradient.style.background = 'linear-gradient(to bottom, #38bdf8, #7dd3fc)';
-            if (skyGlow) skyGlow.style.background = 'rgba(125, 211, 252, 0.4)';
-            showSun = true;
-        } else if (bostonHour >= 17 && bostonHour < 20) {
-            // Dusk - purple and orange sunset
-            skyGradient.style.background = 'linear-gradient(to bottom, #a855f7, #f97316, #fbbf24)';
-            if (skyGlow) skyGlow.style.background = 'rgba(249, 115, 22, 0.4)';
-            showSun = true;
-        } else {
-            // Night - dark blue with stars effect
-            skyGradient.style.background = 'linear-gradient(to bottom, #1e1b4b, #312e81, #3730a3)';
-            if (skyGlow) skyGlow.style.background = 'rgba(99, 102, 241, 0.3)';
-            showSun = false;
-        }
-
-        // Toggle sun/moon visibility
-        sunIcon.classList.toggle('hidden', !showSun);
-        moonIcon.classList.toggle('hidden', showSun);
-
-        // Make skyline darker at night for better contrast
-        if (skyline) {
-            skyline.style.opacity = showSun ? '0.5' : '0.3';
-        }
-    }
-
-    updateLocationBox();
-    setInterval(updateLocationBox, 60000);
-</script>
 
