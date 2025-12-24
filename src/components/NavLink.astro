@@ -25,8 +25,8 @@ const isActive = Astro.url.pathname.startsWith(targetUrl.pathname);
         <span
             class:list={[
                 'absolute inset-0 rounded-xl opacity-0 transition-opacity duration-300',
-                'bg-linear-to-r from-blue-500/10 to-purple-500/10',
-                'dark:from-blue-400/15 dark:to-purple-400/15',
+                'bg-linear-to-r from-cyan-500/10 to-blue-500/10',
+                'dark:from-cyan-400/15 dark:to-blue-400/15',
                 'group-hover:opacity-100',
                 { 'opacity-100': isActive }
             ]}

@@ -8,7 +8,7 @@ interface Props {
 
 const { title, description, href, class: className = '' } = Astro.props;
 
-const baseClasses = "rounded-xl border border-white/20 bg-linear-to-br from-purple-500 via-pink-500 to-orange-500 dark:from-purple-600 dark:via-pink-600 dark:to-orange-600 bg-size-[200%_200%] animate-[gradient-shift_8s_ease-in-out_infinite] text-white p-8 md:p-12 opacity-0 animate-fade-in";
+const baseClasses = "rounded-xl border border-white/20 bg-linear-to-br from-blue-500 via-blue-600 to-cyan-500 dark:from-blue-600 dark:via-blue-700 dark:to-cyan-600 bg-size-[200%_200%] animate-[gradient-shift_8s_ease-in-out_infinite] text-white p-8 md:p-12 opacity-0 animate-fade-in";
 ---
 
 <div class={`${baseClasses} ${className}`}>
